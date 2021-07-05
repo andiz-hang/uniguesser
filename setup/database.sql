@@ -19,6 +19,7 @@ CREATE TABLE university (
 CREATE TABLE campus (
     campus_id SERIAL PRIMARY KEY NOT NULL,
     university_id INTEGER NOT NULL,
+    campus_name TEXT NOT NULL,
     street TEXT NOT NULL,
     city TEXT NOT NULL,
     province TEXT,
