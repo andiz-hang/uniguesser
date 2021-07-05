@@ -32,6 +32,7 @@ CREATE TABLE game_session (
     session_id SERIAL PRIMARY KEY NOT NULL,
     user_id INTEGER NOT NULL,
     score NUMERIC,
+    duration INTERVAL,
     created_at TIMESTAMPTZ NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(user_id),
 );
