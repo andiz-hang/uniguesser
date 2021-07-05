@@ -6,14 +6,14 @@ DROP TABLE IF EXISTS game_session;
 CREATE TABLE user (
     user_id SERIAL PRIMARY KEY NOT NULL,
     username TEXT NOT NULL,
-    password TEXT NOT NULL,
     phone TEXT,
-    email TEXT,
+    email TEXT
 );
 
 CREATE TABLE university (
     university_id SERIAL PRIMARY KEY NOT NULL,
-    university_name TEXT NOT NULL
+    university_name TEXT NOT NULL,
+    abbreviation TEXT
 );
 
 CREATE TABLE campus (
