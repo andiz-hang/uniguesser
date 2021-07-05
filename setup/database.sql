@@ -3,17 +3,17 @@ DROP TABLE IF EXISTS university;
 DROP TABLE IF EXISTS campus;
 DROP TABLE IF EXISTS game_session;
 
-CREATE TABLE user (
+CREATE TABLE "user" (
     user_id SERIAL PRIMARY KEY NOT NULL,
     username TEXT NOT NULL,
+    password TEXT NOT NULL,
     phone TEXT,
     email TEXT
 );
 
 CREATE TABLE university (
     university_id SERIAL PRIMARY KEY NOT NULL,
-    university_name TEXT NOT NULL,
-    abbreviation TEXT
+    university_name TEXT NOT NULL
 );
 
 CREATE TABLE campus (
@@ -25,7 +25,7 @@ CREATE TABLE campus (
     province TEXT,
     country TEXT NOT NULL,
     postal_code TEXT NOT NULL,
-    FOREIGN KEY (university_id) REFERENCES university(university_id),
+    FOREIGN KEY (university_id) REFERENCES university(university_id)
 );
 
 CREATE TABLE game_session (
@@ -34,5 +34,5 @@ CREATE TABLE game_session (
     score NUMERIC,
     duration INTERVAL,
     created_at TIMESTAMPTZ NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (user_id) REFERENCES "user"(user_id)
 );
