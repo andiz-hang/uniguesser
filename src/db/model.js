@@ -3,16 +3,17 @@ var pool;
 pool = new Pool();
 
 
-async function getCampus() {
+async function getCampus(n_campuses) {
     const query = {
-        text: `SELECT * FROM campus OFFSET (SELECT FLOOR(random()*(COUNT(campus_id))) FROM campus) LIMIT 1`
+        text: `SELECT C.campus_name, U.university_name FROM campus C, university U OFFSET (SELECT FLOOR(random()*(COUNT(campus_id))) FROM campus) LIMIT $1`,
+        values: [n_campuses]
     }
 
     try {
         var result = await pool.query(query)
-        return result.rows[0];
-    } catch {
-        return false;
+        return result.rows;
+    } catch (err){
+        return err;
     }
 }
 
