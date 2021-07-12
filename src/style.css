@@ -9,6 +9,28 @@ body {
     position: inline;
 }
 
+h1 {
+    margin-left: 40vw;
+    margin-right: 40vw;
+}
+
+table, td, tr, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table {
+    width: 60vw;
+    float: left;
+}
+
+#high_score_select {
+    float: right;
+    width: 20vw;
+    height: 50px;
+}
+
 #main_frame {
     width: 780px;
     height: 580px;
