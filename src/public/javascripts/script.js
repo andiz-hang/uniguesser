@@ -1,5 +1,8 @@
 $(document).ready(function(){
     $("button").click(e => {
-        // TODO: add logic to retrieve photos
+        $.ajax({
+            method: 'get',
+            url: '/universities',
+        });
     })
   });

@@ -7,12 +7,30 @@ var https = require('https');
 router.get('/', async function(req, res, next) {
     var campus = await model.getCampus();
     var placeId = await getPlaceId(campus.campus_name);
-    var campusPhotos = await getPlacePhotos(placeId);
+    var photoRefs = await getPhotoRef(placeId);
+
+    var photos = [];
+
+    photoRefs.forEach(photoRef => {
+        photos += await getPhoto(photoRef);
+    })
 
     campusPhotos ? res.render('game', {photos: campusPhotos.result.photos}) : res.status(403).send();
 });
 
-async function getPlacePhotos(placeId) {
+
+async function getPhoto(photoRef) {
+    const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${process.env.API_KEY}`;
+
+    try {
+        var result = await makeRequest(url)
+        return result;
+    } catch {
+        return false;
+    }
+}
+
+async function getPhotoRef(placeId) {
     const url = `https://maps.googleapis.com/maps/api/place/details/json?key=${process.env.API_KEY}&place_id=${placeId}&fields=photo`;
 
     try {
