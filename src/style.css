@@ -29,6 +29,7 @@ table {
     float: right;
     width: 20vw;
     height: 50px;
+    font-size: large;
 }
 
 #main_frame {
