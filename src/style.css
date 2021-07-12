@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    font-size: large;
+}
+
+.window {
+    float: left;
+    padding: 1vw;
+    position: inline;
+}
+
+#main_frame {
+    width: 780px;
+    height: 580px;
+    border: 2px solid black;
+    float: left;
+    margin-bottom: 20px;
+}
+
+#location_counter {
+    margin-left: 340px;
+}
+
+#confirm {
+    margin-top: 5vh;
+}

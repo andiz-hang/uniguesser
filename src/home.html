@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div class="window">
+        <select name="schools" id="schools">
+            <option value="" selected disabled hidden>Select a school</option>
+            <option value="Dalhousie">Dalhousie University</option>
+            <option value="McGill">McGill University</option>
+            <option value="SFU">Simon Fraser University</option>
+            <option value="UBC">University of British Columbia</option>
+            <option value="UofT">University of Toronto</option>
+            <option value="UofA">University of Alberta</option>
+        </select>
+
+        <br>
+    
+        <button id="confirm">Confirm</button>
+    </div>
+
+    <!-- This is where the Google Maps API will appear -->
+
+    <div class="window">
+        <div id="main_frame"></div>
+        <p id="location_counter">Location: 2/5</p>
+    </div>
+
+    <div class="window">
+        <p> Timer: <time id="timer">1:20</time> </p>
+        <p> High Score: <time id="high_score">2:00</time> </p>
+    </div>
+
+
+</body>
+</html>
