@@ -91,6 +91,6 @@ insert into campus (university_id, campus_name, street, city, province, country,
 insert into campus (university_id, campus_name, street, city, province, country, postal_code)
 			values (6, 'Augustana Campus', '4901-46 Avenue', 'Camrose', 'AB', 'Canada', 'T4V2R3');
 insert into campus (university_id, campus_name, street, city, province, country, postal_code)
-			values (6, 'South Campus', '1265 Military Trail', 'Toronto', 'Ontario', 'Canada', 'M1C1A4');
+			values (6, 'South Campus', '11610 - 65 Avenue', 'Edmonton', 'AB', 'Canada', 'M1C1A4');
 insert into campus (university_id, campus_name, street, city, province, country, postal_code)
-			values (6, 'Enterprise Square', '1265 Military Trail', 'Toronto', 'Ontario', 'Canada', 'M1C1A4');
+			values (6, 'Enterprise Square', '10230 Jasper Avenue', 'Edmonton', 'AB', 'Canada', 'T6G2E1');
