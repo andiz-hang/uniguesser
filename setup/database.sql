@@ -71,7 +71,7 @@ insert into campus (university_id, campus_name, street, city, province, country,
 			values (3, 'Agricultural Campus', '58 Sipu Road', 'Truro', 'NS', 'Canada', 'B2N5E3');
 
 insert into campus (university_id, campus_name, street, city, province, country, postal_code)
-			values (4, 'Downtown Campus', '845 Sherbrooke Street West', 'Montreal', 'Quebec', 'QC', 'H3A0G4');
+			values (4, 'Downtown Campus', '845 Sherbrooke Street West', 'Montreal', 'QC', 'Canada', 'H3A0G4');
 insert into campus (university_id, campus_name, street, city, province, country, postal_code)
 			values (4, 'Macdonald Campus', '21111 Lakeshore Road', 'Sainte-Anne-de-Bellevue', 'QC', 'Canada', 'H9X3V9');
 insert into campus (university_id, campus_name, street, city, province, country, postal_code)
