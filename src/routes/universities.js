@@ -10,7 +10,9 @@ router.get('/', async function(req, res, next) {
     var campusList = [];
 
     for (let i = 0; i < campuses.length; i++) {
-        let photoRef = await getPhotoRef(campuses[i].campus_name);
+        let searchName = campuses[i].university_name + ' ' + campuses[i].campus_name;
+        console.log(searchName)
+        let photoRef = await getPhotoRef(searchName);
         let photoUrl = await getPhoto(photoRef);
 
         campusList.push({
@@ -26,6 +28,7 @@ async function getPhotoRef(name) {
     const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${process.env.API_KEY}&input=${name}&inputtype=textquery&fields=photo`;
     try {
         var result = await makeRequest(url);
+        console.log(result)
         var photoRef = JSON.parse(result).candidates[0].photos[0].photo_reference;
         return photoRef;
     } catch (err) {
