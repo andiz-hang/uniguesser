@@ -59,6 +59,8 @@ function endGame() {
             created_at: new Date(Date.now()).toISOString().replace('T',' ').replace('Z','')
         }
     });
+
+    location.href = "/";
 }
 
 function displayPhotoByUrl(url) {
@@ -66,7 +68,6 @@ function displayPhotoByUrl(url) {
 }
 
 function nextSchool() {
-    console.log('here')
     schoolIndex ++;
     displayPhotoByUrl(schoolList[schoolIndex].photo_url);
     $("#location_counter").text(`Location: ${schoolIndex+1}/${schoolList.length}`);
