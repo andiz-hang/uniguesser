@@ -5,46 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/stylesheets/index.css">
         <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
-        <script src='/javascripts/script.js' defer></script>
+        <script src='/javascripts/index.js' defer></script>
     </head>
     <body>
         <main>
-            <!-- Left grid column -->
-            <div id="options" class="window">
-                <select name="schools" id="schools">
-                    <option value="" selected disabled hidden>Select a school</option>
-                    <option value="Dalhousie">Dalhousie University</option>
-                    <option value="McGill">McGill University</option>
-                    <option value="SFU">Simon Fraser University</option>
-                    <option value="UBC">University of British Columbia</option>
-                    <option value="UofT">University of Toronto</option>
-                    <option value="UofA">University of Alberta</option>
-                </select>
-                <br>
-                <button id="confirm">Confirm</button>
-            </div>
-
-            <!-- Middle grid column -->
-            <div id="game-window">
-                <div id="photo-container">
-                    <!-- Temporary start game and end game buttons for testing -->
-                    <button id="start-button">Start game</button>
-                    <button id="end-button">End game</button>
-                    <img id="campus-photo" src="" />
-                </div>
-                <div class="window">
-                    <div id="main_frame"></div>
-                    <p id="location_counter"></p>
-                </div>
-            </div>
-
-            <!-- Right grid column -->
-            <div id="score-keeper" class="window">
-                <p> Timer: <time id="timer">0</time> </p>
-                <p> High Score: <time id="high_score">2:00</time> </p>
-            </div>
+            <!-- Temporary start game button for testing -->
+            <button id="start-button">Start game</button>
         </main>
     </body>
 </html>

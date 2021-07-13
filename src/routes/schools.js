@@ -6,20 +6,25 @@ var htmlParser = require('node-html-parser');
 
 
 router.get('/', async function(req, res, next) {
-    var campuses = await model.getCampus(3);
+    var campuses = await model.getCampus();
     var campusList = [];
 
     for (let i = 0; i < campuses.length; i++) {
         let searchName = campuses[i].university_name + ' ' + campuses[i].campus_name;
-        console.log(searchName)
         let photoRef = await getPhotoRef(searchName);
         let photoUrl = await getPhoto(photoRef);
 
-        campusList.push({
-            'campus_name': campuses[i].campus_name,
-            'university_name': campuses[i].university_name,
-            'photo_url': photoUrl
-        });
+        // Some schools do not have photos on Google places
+        if (photoUrl) {
+            campusList.push({
+                'campus_name': campuses[i].campus_name,
+                'university_name': campuses[i].university_name,
+                'photo_url': photoUrl
+            });
+        }
+        if (campusList.length == 5) {
+            break;
+        }
     }
     res.json(campusList);
 });
@@ -28,7 +33,6 @@ async function getPhotoRef(name) {
     const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${process.env.API_KEY}&input=${name}&inputtype=textquery&fields=photo`;
     try {
         var result = await makeRequest(url);
-        console.log(result)
         var photoRef = JSON.parse(result).candidates[0].photos[0].photo_reference;
         return photoRef;
     } catch (err) {
