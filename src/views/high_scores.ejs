@@ -5,29 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../style.css">    
+    <link rel="stylesheet" href="../public/stylesheets/style.css">  
+    <link rel="stylesheet" href="../public/stylesheets/high_scores.css">    
 </head>
 <body>
-    <h1>High Scores</h1>
+    <div id="banner">
+        <h1>High Scores</h1>
+    </div>
 
-    <table id="high_score_table">
-        <th>Username</th><th>Time</th><th>Country</th>
-        <tr>
-            <td>John Smith</td><td>2:32</td><td>USA</td>
-        </tr>
-        <tr>
-            <td>theOne23</td><td>2:34</td><td>Namibia</td>
-        </tr>
-        <tr>
-            <td>garyoak</td><td>2:38</td><td>Brazil</td>
-        </tr>
-    </table>
+    <main>
+        <div id="table-window">
+            <table id="high_score_table">
+                <th>Username</th><th>Time</th><th>Country</th>
+                <tr>
+                    <td>John Smith</td><td>2:32</td><td>USA</td>
+                </tr>
+                <tr>
+                    <td>theOne23</td><td>2:34</td><td>Namibia</td>
+                </tr>
+                <tr>
+                    <td>garyoak</td><td>2:38</td><td>Brazil</td>
+                </tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            </table>
+        </div>
 
-    <select name="high_score" id="high_score_select">
-        <option value="Global" selected>Global High Scores</option>
-        <option value="National">National High Scores</option>
-        <option value="Regional">Regional High Scores</option>
-        <option value="Personal">Personal High Scores</option>
-    </select>
+        <div id="selection-window">
+            <select name="high_score" id="high_score_select">
+                <option value="Global" selected>Global High Scores</option>
+                <option value="National">National High Scores</option>
+                <option value="Regional">Regional High Scores</option>
+                <option value="Personal">Personal High Scores</option>
+            </select>
+        </div>
+    </main>
+    
 </body>
 </html>

@@ -1,16 +1,39 @@
+/* Top Banner */
+#banner {
+  text-align: center;
+  padding: 15px;
+  background-color: beige;
+  margin-bottom: 10px;
+}
+
 main {
   display: grid;
-  grid-template-columns: 30% 30% 25%;
-  grid-column-gap: 5%;
+  grid-template-columns: 33% 30% 33%;
+  grid-column-gap: 2%;
 }
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: larger;
 }
 
 a {
   color: #00B7FF;
+}
+
+button, select {
+  height: 30px
+}
+
+button {
+  width: 200px;
+}
+
+/* Left grid column */
+#options {
+  background-color: blanchedalmond;
+  text-align: center;
+  padding: 10px;
 }
 
 /* Middle grid column */
@@ -29,3 +52,8 @@ a {
 }
 
 /* Right grid column */
+#score-keeper {
+  background-color: blanchedalmond;
+  text-align: center;
+  padding: 10px;
+}
