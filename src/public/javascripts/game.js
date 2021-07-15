@@ -4,7 +4,7 @@ var gameTimer;
 var score = 0;
 
 $(document).ready(function(){
-    // startGame();
+    startGame();
 
     $("#end-button").on("click", () => {
         endGame();
