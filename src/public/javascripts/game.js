@@ -1,7 +1,7 @@
 var schoolList = [];
 var schoolIndex = 0;
 var gameTimer;
-var score;
+var score = 0;
 
 $(document).ready(function(){
     startGame();
@@ -11,10 +11,10 @@ $(document).ready(function(){
     })
 
     $("#confirm").on("click", () => {
-        console.log('here')
         let selectedOption = $("#schools")[0].selectedOptions[0].innerHTML
         if (selectedOption == schoolList[schoolIndex].university_name) {
             score++;
+            $("#score")[0].innerHTML = score;
         }
         if (schoolIndex < schoolList.length-1) {
             nextSchool();
