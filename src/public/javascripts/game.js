@@ -4,7 +4,7 @@ var gameTimer;
 var score = 0;
 
 $(document).ready(function(){
-    startGame();
+    // startGame();
 
     $("#end-button").on("click", () => {
         endGame();
@@ -51,7 +51,7 @@ function endGame() {
 
     $.ajax({
         method: 'post',
-        url: '/game',
+        url: '/games',
         data: {
             user_id: 1, 
             score: score, 

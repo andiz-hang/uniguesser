@@ -1,6 +1,10 @@
 $(document).ready(function(){
     $("#start-button").on("click", () => {
-        location.href = "/game";
+        location.href = "/games";
+    })
+
+    $("#highscore-button").on("click", () => {
+        location.href = "/scores";
     })
 });
 
