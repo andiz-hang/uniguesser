@@ -7,8 +7,13 @@ router.get('/', function(req, res, next) {
   });
 
 router.post('/', async function(req, res, next) {
+  try {
     var result = await model.insertScore(req.body);
     res.json(result)
+  } catch (err) {
+    res.status(422).send("Unable to save game session!")
+  }
+
 });
 
 

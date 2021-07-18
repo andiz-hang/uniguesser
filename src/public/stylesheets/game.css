@@ -45,7 +45,31 @@ button {
 
 /* Right grid column */
 #score-keeper {
-  background-color: blanchedalmond;
   text-align: center;
   padding: 10px;
+
+  background-color: blanchedalmond;
+}
+
+/* End game overlay*/
+#overlay {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+
+  background-color: rgba(138, 138, 138, 0.418);
+}
+
+#notification {
+  width: fit-content;
+  text-align: center;
+  margin: auto;
+
+  border: 1pt black solid;
+  background-color: white;
 }

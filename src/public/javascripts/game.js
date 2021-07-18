@@ -62,14 +62,14 @@ function endGame() {
       user_id: 1,
       score: score,
       duration: $("#timer")[0].innerHTML,
-      created_at: new Date(Date.now())
+      created_at: new Date(Date.now()) //Reference: https://gist.github.com/jczaplew/f055788bf851d0840f50
         .toISOString()
         .replace("T", " ")
         .replace("Z", ""),
     },
+    success: displayNotification("Score saved. Redirecting to home page in 3 seconds..."),
+    error: displayNotification("Couldn't save your score. Redirecting to home page in 3 seconds...")
   });
-
-  location.href = "/";
 }
 
 function displayPhotoByUrl(url) {
@@ -82,4 +82,16 @@ function nextSchool() {
   $("#location_counter").text(
     `Location: ${schoolIndex + 1}/${schoolList.length}`
   );
+}
+
+function displayNotification(message) {
+  $('#overlay').show();
+  $("#notification").text(message);
+
+
+  setTimeout(() => {
+    $("#notification").text("");
+    $('#overlay').hide();
+    location.href = "/";
+  }, 3000);
 }

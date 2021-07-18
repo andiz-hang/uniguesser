@@ -12,7 +12,7 @@ async function getCampus() {
         var result = await pool.query(query)
         return result.rows;
     } catch (err){
-        return err;
+        console.error(err);
     }
 }
 
@@ -28,7 +28,6 @@ async function insertScore(data) {
         return result.rows[0];
     } catch (err) {
         console.error(err)
-        return false;
     }
 }
 
