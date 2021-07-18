@@ -7,7 +7,6 @@ CREATE TABLE "user" (
     user_id SERIAL PRIMARY KEY NOT NULL,
     username TEXT NOT NULL,
     password TEXT NOT NULL,
-    phone TEXT,
     email TEXT
 );
 
@@ -38,6 +37,7 @@ CREATE TABLE game_session (
     FOREIGN KEY (user_id) REFERENCES "user"(user_id)
 );
 
+-- Add universities and campuses
 insert into university (university_name, abbreviation)
 			values ('Simon Fraser University', 'SFU');
 insert into university (university_name, abbreviation)
@@ -94,3 +94,12 @@ insert into campus (university_id, campus_name, street, city, province, country,
 			values (6, 'South Campus', '11610 - 65 Avenue', 'Edmonton', 'AB', 'Canada', 'M1C1A4');
 insert into campus (university_id, campus_name, street, city, province, country, postal_code)
 			values (6, 'Enterprise Square', '10230 Jasper Avenue', 'Edmonton', 'AB', 'Canada', 'T6G2E1');
+
+
+-- Add users
+insert into "user" (username, password, email)
+			values ('one', 'one', 'one@one.com');
+insert into "user" (username, password, email)
+			values ('two', 'two', 'two@two.com');
+insert into "user" (username, password, email)
+			values ('three', 'three', 'three@three.com');
