@@ -51,6 +51,7 @@ button {
 }
 
 #campus-photo {
+  display: none;
   width: 100%;
   max-height: 500px;
 }

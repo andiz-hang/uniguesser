@@ -16,10 +16,10 @@ async function getCampus() {
     }
 }
 
-async function insertScore(data) {
+async function insertScore(userId, data) {
     const query = {
         text: `INSERT INTO game_session (user_id, score, duration, created_at) values ($1, $2, $3, $4) RETURNING *`,
-        values: [data.user_id, data.score, (data.duration).toString(), data.created_at]
+        values: [userId, data.score, (data.duration).toString(), data.created_at]
     }
 
     try {
@@ -62,5 +62,5 @@ module.exports = {
     getCampus,
     insertScore,
     registerUser,
-    loginUser
+    loginUser,
 }
