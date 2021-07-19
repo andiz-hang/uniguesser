@@ -17,7 +17,6 @@ async function getCampus() {
 }
 
 async function insertScore(data) {
-    console.log((data.duration).toString())
     const query = {
         text: `INSERT INTO game_session (user_id, score, duration, created_at) values ($1, $2, $3, $4) RETURNING *`,
         values: [data.user_id, data.score, (data.duration).toString(), data.created_at]
@@ -31,7 +30,37 @@ async function insertScore(data) {
     }
 }
 
+async function registerUser(data) {
+    const query = {
+        text: `INSERT INTO "user" (username, password) VALUES($1, $2) RETURNING *;`,
+        values: [data.username, data.password]
+    }
+
+    try {
+        var result = await pool.query(query)
+        return result.rows[0];
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+async function loginUser(data) {
+    const query = {
+        text: `SELECT * FROM "user" WHERE username = $1 AND password = $2`,
+        values: [data.username, data.password]
+    }
+
+    try {
+        var result = await pool.query(query)
+        return result.rows[0];
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 module.exports = {
     getCampus,
-    insertScore
+    insertScore,
+    registerUser,
+    loginUser
 }

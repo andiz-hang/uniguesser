@@ -73,7 +73,7 @@ async function makeRequest(url) {
             resp.on('end', () => {
                 try {
                     resolve(data);
-                } catch {
+                } catch (err) {
                     reject();
                 }
             });
