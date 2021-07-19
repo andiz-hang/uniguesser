@@ -8,10 +8,15 @@ $(document).ready(function () {
   $("#start-button").on("click", () => {
     var instructionText = document.getElementById("instruction");
     instructionText.style.display = "none";
-    if (firstAttempt) {
-      firstAttempt = false;
-      startGame();
-    }
+    startGame();
+  });
+
+  $('#replay-button').on("click", () =>{
+    location.href = "/games";
+  });
+
+  $("#home-button").on("click", () => {
+    location.href = "/";
   });
 
   $("#end-button").on("click", () => {
@@ -33,6 +38,8 @@ $(document).ready(function () {
 });
 
 function startGame() {
+  clearGameStats();
+
   $.ajax({
     method: "get",
     url: "/universities",
@@ -50,6 +57,8 @@ function startGame() {
         timeDiff = Math.floor((currentTime - startTime) / 1000);
         $("#timer")[0].innerHTML = timeDiff;
       }, 1000);
+
+      $("#start-button")[0].innerHTML = "Restart game"
     },
   });
 }
@@ -61,7 +70,6 @@ function endGame() {
     method: "post",
     url: "/games",
     data: {
-      user_id: 1,
       score: score,
       duration: $("#timer")[0].innerHTML,
       created_at: new Date(Date.now()) //Reference: https://gist.github.com/jczaplew/f055788bf851d0840f50
@@ -69,12 +77,7 @@ function endGame() {
         .replace("T", " ")
         .replace("Z", ""),
     },
-    success: displayNotification(
-      "Score saved. Redirecting to home page in 3 seconds..."
-    ),
-    error: displayNotification(
-      "Couldn't save your score. Redirecting to home page in 3 seconds..."
-    ),
+    success: displayOverlay()
   });
 }
 
@@ -82,7 +85,9 @@ function displayPhotoByUrl(url) {
   var img = new Image();
   img.src = url;
   img.height = "395";
-  $("#campus-photo").attr(img);
+  img.id = "campus-photo";
+  $("#campus-photo").replaceWith(img);
+  $("#campus-photo").show();
 }
 
 function nextSchool() {
@@ -93,13 +98,16 @@ function nextSchool() {
   );
 }
 
-function displayNotification(message) {
+function displayOverlay() {
   $("#overlay").show();
-  $("#notification").text(message);
+}
 
-  setTimeout(() => {
-    $("#notification").text("");
-    $("#overlay").hide();
-    location.href = "/";
-  }, 3000);
+function clearGameStats() {
+  score = 0;
+  schoolIndex = 0;
+  $("#campus-photo").hide();
+
+  $("#timer")[0].innerHTML = 0;
+  $("#score")[0].innerHTML = 0;
+  $("#location_counter").text("");
 }

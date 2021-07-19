@@ -6,5 +6,9 @@ $(document).ready(function(){
     $("#highscore-button").on("click", () => {
         location.href = "/scores";
     })
+
+    $("#home-button").on("click", () => {
+        location.href = "/";
+    });
 });
 

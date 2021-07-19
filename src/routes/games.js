@@ -6,14 +6,18 @@ router.get('/', function(req, res, next) {
     res.render('game', { title: 'Uniguesser' });
   });
 
+
 router.post('/', async function(req, res, next) {
+  var result = {}
   try {
-    var result = await model.insertScore(req.body);
+    if (req.session.user_id) {
+      result = await model.insertScore(req.session.user_id, req.body);
+    }
+    
     res.json(result)
   } catch (err) {
     res.status(422).send("Unable to save game session!")
   }
-
 });
 
 
