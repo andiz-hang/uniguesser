@@ -6,7 +6,6 @@ router.get('/', function(req, res, next) {
     res.render('game', { title: 'Uniguesser' });
   });
 
-
 router.post('/', async function(req, res, next) {
   var result = {}
   try {
@@ -19,6 +18,5 @@ router.post('/', async function(req, res, next) {
     res.status(422).send("Unable to save game session!")
   }
 });
-
 
 module.exports = router;
