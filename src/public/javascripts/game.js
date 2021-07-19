@@ -6,6 +6,8 @@ var firstAttempt = true;
 
 $(document).ready(function () {
   $("#start-button").on("click", () => {
+    var instructionText = document.getElementById("instruction");
+    instructionText.style.display = "none";
     if (firstAttempt) {
       firstAttempt = false;
       startGame();
@@ -67,13 +69,20 @@ function endGame() {
         .replace("T", " ")
         .replace("Z", ""),
     },
-    success: displayNotification("Score saved. Redirecting to home page in 3 seconds..."),
-    error: displayNotification("Couldn't save your score. Redirecting to home page in 3 seconds...")
+    success: displayNotification(
+      "Score saved. Redirecting to home page in 3 seconds..."
+    ),
+    error: displayNotification(
+      "Couldn't save your score. Redirecting to home page in 3 seconds..."
+    ),
   });
 }
 
 function displayPhotoByUrl(url) {
-  $("#campus-photo").attr("src", url);
+  var img = new Image();
+  img.src = url;
+  img.height = "395";
+  $("#campus-photo").attr(img);
 }
 
 function nextSchool() {
@@ -85,13 +94,12 @@ function nextSchool() {
 }
 
 function displayNotification(message) {
-  $('#overlay').show();
+  $("#overlay").show();
   $("#notification").text(message);
-
 
   setTimeout(() => {
     $("#notification").text("");
-    $('#overlay').hide();
+    $("#overlay").hide();
     location.href = "/";
   }, 3000);
 }
