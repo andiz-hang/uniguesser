@@ -16,7 +16,7 @@
             <h1>UNIGUESSER</h1>
         </div>
         <% if (!session.user_id) { %>
-            <form action="/auth/login-or-register" method="POST">
+            <form id="login-form" action="/auth/login-or-register" method="POST">
                 <div>
                     <label>Username</label>
                     <input type="text" name="username" />
@@ -29,7 +29,7 @@
                     <input type="submit" type="submit" name="action" value="login" />
                     <input type="submit" type="submit" name="action" value="register" />
                 </div>
-            </form>
+            </forrm>
             <% } else { %>
             <div id="user-options">
                 <!-- Temporary start game button for testing -->
