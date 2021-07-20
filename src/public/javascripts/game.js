@@ -107,6 +107,7 @@ function clearGameStats() {
   schoolIndex = 0;
   $("#campus-photo").hide();
 
+  clearInterval(gameTimer)
   $("#timer")[0].innerHTML = 0;
   $("#score")[0].innerHTML = 0;
   $("#location_counter").text("");
