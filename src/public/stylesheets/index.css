@@ -1,3 +1,51 @@
-#login-form {
+main {
+    vertical-align: middle;
+    align-items: center;
+}
+
+#login-form-container {
+    display: grid;
+    width: 400px;
+    height: 250px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    border: 1pt rgb(122, 122, 122) solid;
+    border-radius: 25px;
+
+    align-items: center;
+}
+
+#login-form{
+   margin-left: auto;
+   margin-right: auto
+}
+
+#login-form div {
+    margin-bottom: 20px;
+}
+
+#login-form label {
+    display: inline-block;
+    width: 100px;
+}
+
+#auth-buttons {
+    text-align: center;
+}
+
+#profile-container {
+    border: 1pt rgb(122, 122, 122) solid;
+    border-radius: 25px;
+    width: 300px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    text-align: left;
+}
+
+#profile-container h2{
     text-align: center;
 }

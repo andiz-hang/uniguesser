@@ -30,24 +30,44 @@
                   </nav>
             <% } %>
         </header>
-
-        <% if (!session.user_id) { %>
-            <form id="login-form" action="/auth/login-or-register" method="POST">
-                <div>
-                    <label>Username</label>
-                    <input type="text" name="username" />
+        <main>
+            <% if (!session.user_id) { %>
+                <div id="login-form-container">
+                    <form id="login-form" action="/auth/login-or-register" method="POST">
+                        <div>
+                            <label>Username</label>
+                            <input type="text" name="username" />
+                        </div>
+                        <div>
+                            <label>Password</label>
+                            <input type="password" name="password" />
+                        </div>
+                        <div id="auth-buttons">
+                            <input type="submit" type="submit" name="action" value="login" />
+                            <input type="submit" type="submit" name="action" value="register" />
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" name="password" />
+            <% } else { %>
+                <div id="profile-container">
+                    <h2>Logged in as:</h2>
+                    <table align="center">
+                        <tr>
+                            <th>Username</th>
+                        </tr>
+                        <tr>
+                            <td><%=session.username%></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <td><%=session.email%></td>
+                        </tr>
+                    </table>
+                    
                 </div>
-                <div>
-                    <input type="submit" type="submit" name="action" value="login" />
-                    <input type="submit" type="submit" name="action" value="register" />
-                </div>
-            </form>
-        <% } %>
-            
+            <% } %>
         </main>
     </body>
 </html>
