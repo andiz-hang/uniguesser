@@ -11,10 +11,26 @@
         <script src='/javascripts/index.js' defer></script>
     </head>
     <body>
-        <!-- Title Banner -->
-        <div id=banner>
-            <h1>UNIGUESSER</h1>
-        </div>
+        <header>
+            <div class="logo">UNIGUESSER</div>
+            <% if (session.user_id) { %>
+                <nav>
+                    <a href="/" id="home-button" class="nav-option selected-page">
+                      <div>Home</div>
+                    </a>
+                    <a href="/games" id="game-button" class="nav-option">
+                      <div>Play Game</div>
+                    </a>
+                    <a href="/scores" id="scores-button" class="nav-option">
+                      <div>High Scores</div>
+                    </a>
+                    <a id="logout-button" class="nav-option">
+                      <div>Logout</div>
+                    </a>
+                  </nav>
+            <% } %>
+        </header>
+
         <% if (!session.user_id) { %>
             <form id="login-form" action="/auth/login-or-register" method="POST">
                 <div>
@@ -29,17 +45,9 @@
                     <input type="submit" type="submit" name="action" value="login" />
                     <input type="submit" type="submit" name="action" value="register" />
                 </div>
-            </forrm>
-            <% } else { %>
-            <div id="user-options">
-                <!-- Temporary start game button for testing -->
-                <button id="start-button">Go to game page</button>
-                <button id="highscore-button">Go to high score page</button>
-                <form style="display: inline-block;" action="/auth/logout" method="POST">
-                    <input type="submit" type="submit" value="Logout" />
-                </form>
-            </div>
-            <% } %>
+            </form>
+        <% } %>
+            
         </main>
     </body>
 </html>

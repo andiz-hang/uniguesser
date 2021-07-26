@@ -12,64 +12,89 @@
   </head>
   <body>
     <header>
-      <!-- Title Banner -->
-      <div id="banner">
-        <h1>UNIGUESSER</h1>
-      </div>
+      <div class="logo">UNIGUESSER</div>      
+      <nav>
+        <a href="/" id="home-button" class="nav-option">
+          <div>Home</div>
+        </a>
+        <a href="/games" id="game-button" class="nav-option selected-page">
+          <div>Play Game</div>
+        </a>
+        <a href="/scores" id="scores-button" class="nav-option">
+          <div>High Scores</div>
+        </a>
+        <a id="logout-button" class="nav-option">
+          <div>Logout</div>
+        </a>
+      </nav>
     </header>
     <main>
-      <div id="overlay">
-        <div id="notification">
-          <button id="replay-button">Play again</button>
-          <button id="home-button">Return to home</button>
-        </div>
-      </div>
-
       <!-- Left grid column -->
-      <div id="options" class="window">
-        <select name="schools" id="schools">
-          <option value="" selected disabled hidden>Select a school</option>
-          <option value="Dalhousie">Dalhousie University</option>
-          <option value="McGill">McGill University</option>
-          <option value="SFU">Simon Fraser University</option>
-          <option value="UBC">University of British Columbia</option>
-          <option value="UofT">University of Toronto</option>
-          <option value="UofA">University of Alberta</option>
-        </select>
-        <br />
-        <button id="confirm">Confirm</button>
+      <div id="left-column" class="window">
+        <p id="instruction">
+          UniGuesser is a web-based geographic discovery game based on
+          GeoGusser.<br /><br />A set of pictures will be fetched from Google
+          Places API and displayed in semi-randomized order when "Start game"
+          button is clicked. Once you are ready to guess the location, please
+          select a school from the drop-down list on the left and confirm your
+          choice by clicking the "Confirm" button". You score will be
+          calculated based on both the accuracy and the time spent to complete
+          the game. <br /><br />Please note that the locations are currently
+          limited to universities in Canada.
+        </p>
       </div>
 
       <!-- Middle grid column -->
-      <div id="game-window">
-        <div id="photo-container">
-          <button id="start-button">Start game</button>
-          <button id="end-button">End game</button>
+      <div id="right-column">
+        <div id="top-row">
+          <table class="stats" align='center'>
+            <tr>
+              <th>Score:</th>
+              <td>
+                <span id="score">0</span>
+              </td>
+              <th>Timer:</th>
+              <td>
+                <time id="timer">0</time>
+              </td>
+              <th>High Score:</th>
+              <td>
+                <span id="high_score">0</span>
+              </td>
+            </tr>
+          </table>
+        </div>
 
-          <p id="location_counter"></p>
-          <!-- Temporary start game and end game buttons for testing -->
-
-          <img id="campus-photo" src="" />
-          <p id="instruction">
-            UniGuesser is a web-based geographic discovery game based on
-            GeoGusser.<br /><br />A set of pictures will be fetched from Google
-            Places API and displayed in semi-randomized order when "Start game"
-            button is clicked. Once you are ready to guess the location, please
-            select a school from the drop-down list on the left and confirm your
-            choice by clicking the "Confirm" button". You score will be
-            calculated based on both the accuracy and the time spent to complete
-            the game. <br /><br />Please note that the locations are currently
-            limited to universities in Canada.
-          </p>
+        <div id="bottom-row">
+          <div id="overlay">
+              <button id="start-button">Start game</button>
+          </div>
+          <div id="left-inner-col">
+            <div id="photo-container">
+              <p id="location_counter"></p>
+              <img id="campus-photo" src="" />
+            </div>
+          </div>
+          <div id="right-inner-col" class="window">
+            <form id="selection-form">
+              <input type="radio" id="school1" name="selected-school" value="Dalhousie University">
+              <label for="school1">Dalhousie University</label><br>
+              <input type="radio" id="school2" name="selected-school" value="McGill University">
+              <label for="school2">McGill University</label><br>
+              <input type="radio" id="school3" name="selected-school" value="Simon Fraser University">
+              <label for="school3">Simon Fraser University</label><br>
+              <input type="radio" id="school4" name="selected-school" value="University of British Columbia">
+              <label for="school4">University of British Columbia</label><br>
+              <input type="radio" id="school5" name="selected-school" value="University of Toronto">
+              <label for="school5">University of Toronto</label><br>
+              <input type="radio" id="school6" name="selected-school" value="University of Alberta">
+              <label for="school6">University of Alberta</label><br><br>
+              <input type="submit" value="confirm">
+            </form>
+          </div>
         </div>
       </div>
 
-      <!-- Right grid column -->
-      <div id="score-keeper" class="window">
-        <p>Score: <span id="score">0</span></p>
-        <p>Timer: <time id="timer">0</time></p>
-        <p>High Score: <time id="high_score">2:00</time></p>
-      </div>
     </main>
   </body>
 </html>
