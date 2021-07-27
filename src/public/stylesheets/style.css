@@ -17,6 +17,10 @@ header {
     grid-template-columns: 300px auto;
 }
 
+main {
+    padding: 20px;
+}
+
 .logo {
     align-self: center;
     font-size: 32px;
