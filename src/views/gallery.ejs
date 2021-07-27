@@ -32,12 +32,15 @@
         </nav>
     </header>
     <main>
-        <select name="school_select" id="school_select">
+        <ul name="school_select" id="school_select">
             <% schools.forEach(s => { %>
-                <option value=""> <%= s.university_name; %> </option>
+                <li> <%= s.university_name; %> </li>
             <% }); %>
-        </select>
+        </ul>
 
+        <article id="school_description">
+            This school is amazing. In fact, it's so great that I don't have enough room to write all of the greatness of this school.
+        </article>
     </main>
 </body>
 </html>
