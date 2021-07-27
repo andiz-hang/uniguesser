@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var model = require('../db/model')
 
 
-router.get('/', function(req, res, next) {
-    res.render('gallery', { title: 'Gallery' });
+router.get('/', async function(req, res, next) {
+    var schools = await model.getUniversities();
+    console.log(schools);
+    res.render('gallery', { schools: schools});
 });
 
 module.exports = router;

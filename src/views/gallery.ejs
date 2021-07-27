@@ -30,6 +30,14 @@
             <div>Logout</div>
           </a>
         </nav>
-      </header>
+    </header>
+    <main>
+        <select name="school_select" id="school_select">
+            <% schools.forEach(s => { %>
+                <option value=""> <%= s.university_name; %> </option>
+            <% }); %>
+        </select>
+        
+    </main>
 </body>
 </html>
