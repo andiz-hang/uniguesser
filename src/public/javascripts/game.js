@@ -6,8 +6,7 @@ var firstAttempt = true;
 
 $(document).ready(function () {
   $("#start-button").on("click", () => {
-    var instructionText = document.getElementById("instruction");
-    instructionText.style.display = "none";
+    $("#overlay").hide();
     startGame();
   });
 
@@ -15,27 +14,30 @@ $(document).ready(function () {
     location.href = "/games";
   });
 
-  $("#home-button").on("click", () => {
-    location.href = "/";
-  });
-
   $("#end-button").on("click", () => {
     endGame();
   });
 
-  $("#confirm").on("click", () => {
-    let selectedOption = $("#schools")[0].selectedOptions[0].innerHTML;
-    if (selectedOption == schoolList[schoolIndex].university_name) {
-      score++;
-      $("#score")[0].innerHTML = score;
-    }
-    if (schoolIndex < schoolList.length - 1) {
-      nextSchool();
-    } else {
-      endGame();
-    }
+  $("#selection-form").on("submit", event => {
+    event.preventDefault();
+    let answer = $("input[name='selected-school']:checked").val();
+    checkAnswer(answer);
   });
 });
+
+function checkAnswer(answer) {
+  if (answer == schoolList[schoolIndex].university_name) {
+    score++;
+    
+    $("#score")[0].innerHTML = score;
+  }
+  if (schoolIndex < schoolList.length - 1) {
+    nextSchool();
+  } else {
+    endGame();
+  }
+}
+
 
 function startGame() {
   clearGameStats();
@@ -58,7 +60,7 @@ function startGame() {
         $("#timer")[0].innerHTML = timeDiff;
       }, 1000);
 
-      $("#start-button")[0].innerHTML = "Restart game"
+      $("#start-button")[0].innerHTML = "Play again"
     },
   });
 }
@@ -91,6 +93,7 @@ function displayPhotoByUrl(url) {
 }
 
 function nextSchool() {
+  $("input[name='selected-school']").attr('checked', false);
   schoolIndex++;
   displayPhotoByUrl(schoolList[schoolIndex].photo_url);
   $("#location_counter").text(

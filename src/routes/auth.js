@@ -22,8 +22,9 @@ router.post('/login-or-register', async function(req, res, next) {
         password: req.body.password
       })
       if (!user) return res.redirect('/login-error')
-
       req.session.user_id = user.user_id
+      req.session.username = user.username
+      req.session.email = user.email
       return res.redirect('/')
     } 
   }
