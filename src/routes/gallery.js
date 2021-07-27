@@ -5,7 +5,6 @@ var model = require('../db/model')
 
 router.get('/', async function(req, res, next) {
     var schools = await model.getUniversities();
-    console.log(schools);
     res.render('gallery', { schools: schools});
 });
 
