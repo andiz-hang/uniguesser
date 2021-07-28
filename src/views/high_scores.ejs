@@ -32,6 +32,15 @@
           </nav>
     </header>
     <main>
+        <div id="selection-window">
+            <select name="high_score" id="high_score_select">
+                <option value="Global" selected>Global High Scores</option>
+                <option value="National">National High Scores</option>
+                <option value="Regional">Regional High Scores</option>
+                <option value="Personal">Personal High Scores</option>
+            </select>
+        </div>
+
         <div id="table-window">
             <table id="high_score_table">
 
@@ -45,19 +54,10 @@
                 <tr>
                     <td>garyoak</td><td>2:38</td><td>Brazil</td>
                 </tr>
-                <% for (i=0;i<10;i++) {%>
+                <% for (i=0;i<20;i++) {%>
                     <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
                 <% } %>
             </table>
-        </div>
-
-        <div id="selection-window">
-            <select name="high_score" id="high_score_select">
-                <option value="Global" selected>Global High Scores</option>
-                <option value="National">National High Scores</option>
-                <option value="Regional">Regional High Scores</option>
-                <option value="Personal">Personal High Scores</option>
-            </select>
         </div>
     </main>
 </body>
