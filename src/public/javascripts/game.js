@@ -10,7 +10,7 @@ $(document).ready(function () {
     startGame();
   });
 
-  $('#replay-button').on("click", () =>{
+  $("#replay-button").on("click", () => {
     location.href = "/games";
   });
 
@@ -60,7 +60,11 @@ function startGame() {
         $("#timer")[0].innerHTML = timeDiff;
       }, 1000);
 
+<<<<<<< HEAD
+      $("#start-button")[0].innerHTML = "Restart game";
+=======
       $("#start-button")[0].innerHTML = "Play again"
+>>>>>>> dac00bdc4afd7769c26228e35fb60a55fd04e477
     },
   });
 }
@@ -79,7 +83,7 @@ function endGame() {
         .replace("T", " ")
         .replace("Z", ""),
     },
-    success: displayOverlay()
+    success: displayOverlay(),
   });
 }
 
@@ -110,7 +114,7 @@ function clearGameStats() {
   schoolIndex = 0;
   $("#campus-photo").hide();
 
-  clearInterval(gameTimer)
+  clearInterval(gameTimer);
   $("#timer")[0].innerHTML = 0;
   $("#score")[0].innerHTML = 0;
   $("#location_counter").text("");
