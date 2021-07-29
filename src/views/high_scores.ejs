@@ -1,64 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>High Scores</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="/stylesheets/high_scores.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/high_scores.css" />
     <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
-    <script src='/javascripts/index.js' defer></script>
-</head>
-<body>
+    <script src="/javascripts/index.js" defer></script>
+    <script src="/javascripts/scores.js" defer></script>
+  </head>
+  <body>
     <header>
-        <div class="logo">UNIGUESSER</div>        
-        <nav>
-            <a href="/" id="home-button" class="nav-option">
-              <div>Home</div>
-            </a>
-            <a href="/games" id="game-button" class="nav-option">
-              <div>Play Game</div>
-            </a>
-            <a href="/scores" id="scores-button" class="nav-option selected-page">
-              <div>High Scores</div>
-            </a>
-            <a href="/gallery" id="gallery-button" class="nav-option">
-              <div>Gallery</div>
-            </a>
-            <a id="logout-button" class="nav-option">
-              <div>Logout</div>
-            </a>
-          </nav>
+      <div class="logo">UNIGUESSER</div>
+      <nav>
+        <a href="/" id="home-button" class="nav-option">
+          <div>Home</div>
+        </a>
+        <a href="/games" id="game-button" class="nav-option">
+          <div>Play Game</div>
+        </a>
+        <a href="/scores" id="scores-button" class="nav-option selected-page">
+          <div>High Scores</div>
+        </a>
+        <a href="/gallery" id="gallery-button" class="nav-option">
+          <div>Gallery</div>
+        </a>
+        <a id="logout-button" class="nav-option">
+          <div>Logout</div>
+        </a>
+      </nav>
     </header>
     <main>
-        <div id="selection-window">
-            <select name="high_score" id="high_score_select">
-                <option value="Global" selected>Global High Scores</option>
-                <option value="National">National High Scores</option>
-                <option value="Regional">Regional High Scores</option>
-                <option value="Personal">Personal High Scores</option>
-            </select>
-        </div>
+      <div id="selection-window">
+        <select name="high_score" id="high_score_select">
+          <option value="Global" selected>Global High Scores</option>
+          <option value="National">National High Scores</option>
+          <option value="Regional">Regional High Scores</option>
+          <option value="Personal">Personal High Scores</option>
+        </select>
+      </div>
 
-        <div id="table-window">
-            <table id="high_score_table">
-
-                <th>Username</th><th>Time</th><th>Country</th>
-                <tr>
-                    <td>John Smith</td><td>2:32</td><td>USA</td>
-                </tr>
-                <tr>
-                    <td>theOne23</td><td>2:34</td><td>Namibia</td>
-                </tr>
-                <tr>
-                    <td>garyoak</td><td>2:38</td><td>Brazil</td>
-                </tr>
-                <% for (i=0;i<20;i++) {%>
-                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-                <% } %>
-            </table>
-        </div>
+      <div id="table-window">
+        <table id="high_score_table">
+          <th>Username</th>
+          <th>Time</th>
+          <th>Country</th>
+          <tr>
+            <td>John Smith</td>
+            <td>2:32</td>
+            <td>USA</td>
+          </tr>
+          <tr>
+            <td>theOne23</td>
+            <td>2:34</td>
+            <td>Namibia</td>
+          </tr>
+          <tr>
+            <td>garyoak</td>
+            <td>2:38</td>
+            <td>Brazil</td>
+          </tr>
+          <% for (i=0;i<20;i++) {%>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+      <ul id="highScoresList"></ul>
     </main>
-</body>
+  </body>
 </html>

@@ -18,7 +18,7 @@ $(document).ready(function () {
     endGame();
   });
 
-  $("#selection-form").on("submit", event => {
+  $("#selection-form").on("submit", (event) => {
     event.preventDefault();
     let answer = $("input[name='selected-school']:checked").val();
     checkAnswer(answer);
@@ -28,7 +28,7 @@ $(document).ready(function () {
 function checkAnswer(answer) {
   if (answer == schoolList[schoolIndex].university_name) {
     score++;
-    
+
     $("#score")[0].innerHTML = score;
   }
   if (schoolIndex < schoolList.length - 1) {
@@ -37,7 +37,6 @@ function checkAnswer(answer) {
     endGame();
   }
 }
-
 
 function startGame() {
   clearGameStats();
@@ -60,11 +59,7 @@ function startGame() {
         $("#timer")[0].innerHTML = timeDiff;
       }, 1000);
 
-<<<<<<< HEAD
-      $("#start-button")[0].innerHTML = "Restart game";
-=======
-      $("#start-button")[0].innerHTML = "Play again"
->>>>>>> dac00bdc4afd7769c26228e35fb60a55fd04e477
+      $("#start-button")[0].innerHTML = "Play again";
     },
   });
 }
@@ -97,7 +92,7 @@ function displayPhotoByUrl(url) {
 }
 
 function nextSchool() {
-  $("input[name='selected-school']").attr('checked', false);
+  $("input[name='selected-school']").attr("checked", false);
   schoolIndex++;
   displayPhotoByUrl(schoolList[schoolIndex].photo_url);
   $("#location_counter").text(
