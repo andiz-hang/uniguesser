@@ -1,14 +1,25 @@
-#profile-container {
-    border: 1pt rgb(122, 122, 122) solid;
-    border-radius: 25px;
-    width: 300px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 200px;
-    text-align: left;
+main {
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#profile-container h2{
-    text-align: center;
+.container {
+    border: 1pt rgb(122, 122, 122) solid;
+    border-radius: 25px;
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    list-style-type: none;
+    font-size: larger;
+    margin: 0;
+    margin-bottom: 20px;
+
+    /* Prevent padding from overriding width */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.container li {
+    margin: 20px 0;
 }

@@ -51,11 +51,20 @@
             </table>
         </div> -->
 
-        <div class="container">
-            <p>Username: <%= info.username %></p>
-            <p>Password: <%= info.password %></p>
-            <p>Email: <%= info.email %></p>
-        </div>
+        <h1>Welcome, <%= info.username %>! </h1>
+
+        <label for="login">LOGIN INFORMATION</label>
+        <ul class="container" name="login">
+            <li>USERNAME: <%= info.username %></li>
+            <li>PASSWORD: <%= info.password %></li>
+        </ul>
+
+        <label for="personal">PERSONAL INFORMATION</label>
+        <ul class="container" name="personal">
+            <li>EMAIL: <%= info.email %></li>
+            <li>COUNTRY: *insert country here*</li>
+        </ul>
+
     </main>
 </body>
 </html>
