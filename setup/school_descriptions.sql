@@ -7,17 +7,17 @@ WHERE abbreviation = 'SFU';
 
 UPDATE university 
 SET school_description = 
-'The University of British Columbia (UBC) is a public research university with campuses in Vancouver and Kelowna, British Columbia. Established in 1908, UBC is British Columbia''s oldest university. The university ranks among the top three universities in Canada.[8][9][10][11] With an annual research budget of $600 million, UBC funds over 8,000 projects a year'
+'The University of British Columbia (UBC) is a public research university with campuses in Vancouver and Kelowna, British Columbia. Established in 1908, UBC is British Columbia''s oldest university. The university ranks among the top three universities in Canada. With an annual research budget of $600 million, UBC funds over 8,000 projects a year'
 WHERE abbreviation = 'UBC';
 
 UPDATE university 
 SET school_description = 
-'Dalhousie University (commonly known as Dal) is a public research university in Nova Scotia, Canada, with three campuses in Halifax, a fourth in Bible Hill, and medical teaching facilities in Saint John, New Brunswick. Dalhousie offers more than 4,000 courses, and 180 degree programs in twelve undergraduate, graduate, and professional faculties.[6] The university is a member of the U15, a group of research-intensive universities in Canada.'
+'Dalhousie University (commonly known as Dal) is a public research university in Nova Scotia, Canada, with three campuses in Halifax, a fourth in Bible Hill, and medical teaching facilities in Saint John, New Brunswick. Dalhousie offers more than 4,000 courses, and 180 degree programs in twelve undergraduate, graduate, and professional faculties. The university is a member of the U15, a group of research-intensive universities in Canada.'
 WHERE abbreviation = 'Dal';
 
 UPDATE university 
 SET school_description = 
-'McGill University is a public research university located in Montreal, Quebec, Canada. Founded in 1821 by royal charter granted by King George IV,[9] the university bears the name of James McGill, a Scottish merchant whose bequest in 1813 formed the university''s precursor, University of McGill College (or simply, McGill College); the name was officially changed to McGill University in 1885. '
+'McGill University is a public research university located in Montreal, Quebec, Canada. Founded in 1821 by royal charter granted by King George IV, the university bears the name of James McGill, a Scottish merchant whose bequest in 1813 formed the university''s precursor, University of McGill College (or simply, McGill College); the name was officially changed to McGill University in 1885.'
 WHERE abbreviation = 'McGill';
 
 UPDATE university 
