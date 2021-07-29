@@ -1,14 +1,13 @@
-$(document).ready(function(){
-    $("#start-button").on("click", () => {
-        location.href = "/games";
-    })
+$(document).ready(function () {
+  $("#start-button").on("click", () => {
+    location.href = "/games";
+  });
 
-    $("#highscore-button").on("click", () => {
-        location.href = "/scores";
-    })
+  $("#highscore-button").on("click", () => {
+    location.href = "/scores";
+  });
 
-    $("#home-button").on("click", () => {
-        location.href = "/";
-    });
+  $("#home-button").on("click", () => {
+    location.href = "/";
+  });
 });
-
