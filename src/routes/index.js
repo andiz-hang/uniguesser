@@ -1,21 +1,18 @@
 var express = require('express');
 var router = express.Router();
-
-// /* ORIGINAL GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.locals.session = req.session
-//   res.render('index', { title: 'Express' });
-// });
+var model = require('../db/model')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
     res.locals.session = req.session
     if (!req.session.user_id){
         res.render('login');
     } else {
-        res.render('profile');
+        var info = await model.getUserData(req.session.user_id);
+        console.log(info);
+        res.render('profile', { info: info });
     }
-  });
+});
   
 
 module.exports = router;

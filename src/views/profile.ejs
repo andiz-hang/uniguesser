@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
     <script src='/javascripts/index.js' defer></script>
@@ -32,22 +32,29 @@
         </nav>
     </header>
     <main>
-        <div id="profile-container">
+        <!-- TODO: DELETE ME -->
+        <!-- <div id="profile-container">
             <h2>Logged in as:</h2>
             <table align="center">
                 <tr>
                     <th>Username</th>
                 </tr>
                 <tr>
-                    <td><%=session.username%></td>
+                    <td><%#=session.username%></td>
                 </tr>
                 <tr>
                     <th>Email</th>
                 </tr>
                 <tr>
-                    <td><%=session.email%></td>
+                    <td><%#=session.email%></td>
                 </tr>
             </table>
+        </div> -->
+
+        <div class="container">
+            <p>Username: <%= info.username %></p>
+            <p>Password: <%= info.password %></p>
+            <p>Email: <%= info.email %></p>
         </div>
     </main>
 </body>

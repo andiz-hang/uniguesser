@@ -58,6 +58,20 @@ async function loginUser(data) {
     }
 }
 
+async function getUserData(id) {
+    const query = {
+        text: `SELECT * FROM "user" WHERE user_id = $1`,
+        values: [id]
+    }
+
+    try {
+        var result = await pool.query(query)
+        return result.rows[0];
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 async function getUniversities() {
     const query = {
         text: `SELECT * FROM university`
@@ -90,6 +104,7 @@ module.exports = {
     insertScore,
     registerUser,
     loginUser,
+    getUserData,
     getUniversities,
     getUniversity
 }
