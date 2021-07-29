@@ -1,14 +1,75 @@
 /* Default styles for app */
-
-#banner {
-    text-align: center;
-    padding: 15px;
-    background-color: beige;
-    margin-bottom: 10px;
-}
-
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
+
+body {
+    display: grid;
+    grid-template-rows: 75px auto;
+}
+
+header {
+    background-color: #001529;
+    color: white;
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+
+.logo {
+    align-self: center;
+    font-size: 32px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+}
+
+nav {
+    display: flex;
+    height: inherit;
+    width: 100%;
+}
+
+#logout-button {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+#logout-button a:hover {
+    color: rgb(190, 55, 55);
+}
+
+.nav-option {
+    display: grid;
+    align-content: center;
+    text-align: center;
+    width: 120px;
+}
+
+.nav-option {
+    text-decoration: none;
+    color: darkgray;
+}
+
+.nav-option:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.nav-option:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.selected-page {
+    background-color: #1890ff;
+    outline: none;
+    border: none;
+    padding: 0;
+}
+
+.selected-page, .selected-page:hover  {
+    color: white;
+}
+

@@ -1,13 +1,21 @@
 $(document).ready(function () {
-  $("#start-button").on("click", () => {
+  $("#home-button").on("click", () => {
+    location.href = "/";
+  });
+
+  $("#game-button").on("click", () => {
     location.href = "/games";
   });
 
-  $("#highscore-button").on("click", () => {
+  $("#scores-button").on("click", () => {
     location.href = "/scores";
   });
 
-  $("#home-button").on("click", () => {
+  $("#logout-button").on("click", () => {
+    $.ajax({
+      method: "POST",
+      url: "/auth/logout",
+    });
     location.href = "/";
   });
 });

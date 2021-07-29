@@ -1,0 +1,30 @@
+main {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    font-size: larger;
+    background-color:rgb(92, 21, 21);
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+    border: 0 solid silver;
+    border-width: 0 0 1px 0;
+    color: darkgray;
+}
+
+li:hover {
+    cursor: pointer;
+    color: white;
+}
+
+article {
+    padding: 20px;
+    background-color: blanchedalmond;
+}

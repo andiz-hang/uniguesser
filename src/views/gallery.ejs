@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/gallery.css">
+    <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
+    <!-- <script src='/javascripts/index.js' defer></script> -->
+</head>
+<body>
+    <header>
+        <div class="logo">UNIGUESSER</div>      
+        <nav>
+          <a href="/" id="home-button" class="nav-option">
+            <div>Home</div>
+          </a>
+          <a href="/games" id="game-button" class="nav-option">
+            <div>Play Game</div>
+          </a>
+          <a href="/scores" id="scores-button" class="nav-option">
+            <div>High Scores</div>
+          </a>
+          <a href="/gallery" id="gallery-button" class="nav-option selected-page">
+            <div>Gallery</div>
+          </a>
+          <a id="logout-button" class="nav-option">
+            <div>Logout</div>
+          </a>
+        </nav>
+    </header>
+    <main>
+        <ul name="school_select" id="school_select">
+            <% schools.forEach(s => { %>
+                <li> <%= s.university_name; %> </li>
+            <% }); %>
+        </ul>
+
+        <article id="school_description">
+            This school is amazing. In fact, it's so great that I don't have enough room to write all of the greatness of this school.
+        </article>
+    </main>
+</body>
+</html>

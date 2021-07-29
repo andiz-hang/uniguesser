@@ -11,34 +11,69 @@
         <script src='/javascripts/index.js' defer></script>
     </head>
     <body>
-        <!-- Title Banner -->
-        <div id=banner>
-            <h1>UNIGUESSER</h1>
-        </div>
-        <% if (!session.user_id) { %>
-            <form id="login-form" action="/auth/login-or-register" method="POST">
-                <div>
-                    <label>Username</label>
-                    <input type="text" name="username" />
+        <header>
+            <div class="logo">UNIGUESSER</div>
+            <% if (session.user_id) { %>
+                <nav>
+                    <a href="/" id="home-button" class="nav-option selected-page">
+                      <div>Home</div>
+                    </a>
+                    <a href="/games" id="game-button" class="nav-option">
+                      <div>Play Game</div>
+                    </a>
+                    <a href="/scores" id="scores-button" class="nav-option">
+                      <div>High Scores</div>
+                    </a>
+                    <a href="/gallery" id="gallery-button" class="nav-option">
+                      <div>Gallery</div>
+                    </a>
+                    <a id="logout-button" class="nav-option">
+                      <div>Logout</div>
+                    </a>
+                  </nav>
+            <% } %>
+        </header>
+        <main>
+            <% if (!session.user_id) { %>
+                <div id="login-form-container">
+                    <form id="login-form" action="/auth/login-or-register" method="POST">
+                        <div>
+                            <label>Username</label>
+                            <input type="text" name="username" />
+                        </div>
+                        <div>
+                            <label>Password</label>
+                            <input type="password" name="password" />
+                        </div>
+                        <div id="auth-buttons">
+                            <input type="submit" type="submit" name="action" value="login" />
+                            <input type="submit" type="submit" name="action" value="register" />
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" name="password" />
-                </div>
-                <div>
-                    <input type="submit" type="submit" name="action" value="login" />
-                    <input type="submit" type="submit" name="action" value="register" />
-                </div>
+<<<<<<< HEAD
             </form>
+=======
+>>>>>>> dac00bdc4afd7769c26228e35fb60a55fd04e477
             <% } else { %>
-            <div id="user-options">
-                <!-- Temporary start game button for testing -->
-                <button id="start-button">Go to game page</button>
-                <button id="highscore-button">Go to high score page</button>
-                <form style="display: inline-block;" action="/auth/logout" method="POST">
-                    <input type="submit" type="submit" value="Logout" />
-                </form>
-            </div>
+                <div id="profile-container">
+                    <h2>Logged in as:</h2>
+                    <table align="center">
+                        <tr>
+                            <th>Username</th>
+                        </tr>
+                        <tr>
+                            <td><%=session.username%></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <td><%=session.email%></td>
+                        </tr>
+                    </table>
+                    
+                </div>
             <% } %>
         </main>
     </body>

@@ -1,52 +1,42 @@
 main {
   display: grid;
-  grid-template-columns: 33% 30% 33%;
-  grid-column-gap: 2%;
+  grid-template-columns: 20% auto;
 }
 
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-size: larger;
+/* Left grid column */
+#left-column {
+  background-color: blanchedalmond;
+  padding: 30px;
 }
 
-a {
-  color: #00b7ff;
+/* Right grid column */
+#right-column {
+  display: grid;
+  grid-template-rows: 10% 60%;
 }
 
-p {
+.stats td:nth-child(2), .stats td:nth-child(4){
+  padding-right: 50px;
+}
+
+.stats p {
   font-weight: bold;
 }
 
-button,
-select {
-  height: 30px;
-  margin-bottom: 10px;
+/* Bottom row */
+#bottom-row {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  align-items: center;
 }
 
-button {
-  width: 200px;
-}
-
-#instruction {
-  font-weight: normal;
-  text-align: justify;
-}
-/* Left grid column */
-#options {
-  background-color: blanchedalmond;
-  text-align: center;
-  padding: 10px;
-}
-
-/* Middle grid column */
-#game-window {
+#left-inner-col {
   text-align: center;
 }
 
 #photo-container {
-  border: 1px black solid;
   width: 100%;
-  height: 500px;
+  height: 100%;
   padding: 10px;
 }
 
@@ -57,16 +47,22 @@ button {
 }
 
 /* Right grid column */
-#score-keeper {
-  text-align: center;
+#right-inner-col {
   padding: 10px;
+}
 
-  background-color: blanchedalmond;
+#top-row table {
+  height: 100%;
+}
+
+#bottom-row {
+  height: 100%;
+  position:relative;
 }
 
 /* End game overlay*/
 #overlay {
-  display: none;
+  display: grid;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -75,14 +71,23 @@ button {
   margin: 0;
   padding: 0;
 
-  background-color: rgba(138, 138, 138, 0.418);
+  vertical-align: middle;
+  background-color: rgba(138, 138, 138, 0.692);
 }
 
-#notification {
-  width: fit-content;
+#start-button {
+  font-size: larger;
+  width: 150px;
+  height: 100px;
+  border: 1pt white solid;
+  background-color: #1890ff;
+  border-radius: 15%;
   text-align: center;
   margin: auto;
+  color: white;
+  outline: none;
+}
 
-  border: 1pt black solid;
-  background-color: white;
+#start-button:hover {
+  cursor: pointer;
 }
