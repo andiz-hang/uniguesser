@@ -27,4 +27,6 @@ li:hover {
 article {
     padding: 20px;
     background-color: blanchedalmond;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
