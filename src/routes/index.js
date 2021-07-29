@@ -9,10 +9,13 @@ router.get('/', async function(req, res, next) {
         res.render('login');
     } else {
         var info = await model.getUserData(req.session.user_id);
-        console.log(info);
         res.render('profile', { info: info });
     }
 });
-  
+
+router.get('/pw', async function(req, res, next) {
+    var info = await model.getUserData(req.session.user_id);
+    res.send(info.password);
+});
 
 module.exports = router;
