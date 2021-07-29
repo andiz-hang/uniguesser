@@ -71,10 +71,25 @@ async function getUniversities() {
     }
 }
 
+async function getUniversity(id) {
+    const query = {
+        text: `SELECT * FROM university WHERE university_id = $1`,
+        values: [id]
+    }
+
+    try {
+        var result = await pool.query(query)
+        return result.rows[0];
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 module.exports = {
     getCampus,
     insertScore,
     registerUser,
     loginUser,
-    getUniversities
+    getUniversities,
+    getUniversity
 }

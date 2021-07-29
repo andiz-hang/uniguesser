@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/gallery.css">
     <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
-    <!-- <script src='/javascripts/index.js' defer></script> -->
+    <script src='/javascripts/index_gallery.js' defer></script>
 </head>
 <body>
     <header>
@@ -34,7 +34,7 @@
     <main>
         <ul name="school_select" id="school_select">
             <% schools.forEach(s => { %>
-                <li> <%= s.university_name; %> </li>
+                <li onclick="getDesc( <%= s.university_id %> )"> <%= s.university_name %> </li>
             <% }); %>
         </ul>
 

@@ -11,6 +11,10 @@ $(document).ready(function(){
         location.href = "/scores";
     });
 
+    $("#gallery-button").on("click", () => {
+        location.href = "/gallery";
+    });
+
     $("#logout-button").on("click", () => {
         $.ajax({
             method: "POST",
