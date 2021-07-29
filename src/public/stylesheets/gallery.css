@@ -1,6 +1,6 @@
 main {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 25% 55% 20%;
 }
 
 ul {
@@ -26,7 +26,19 @@ li:hover {
 
 article {
     padding: 20px;
-    background-color: blanchedalmond;
     font-size: larger;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 130%;
+}
+
+#right_sidebar{
+    padding-top: 5%;
+}
+
+img {
+    width: 100%;
+}
+
+article, #right_sidebar {
+    background-color: blanchedalmond;
 }
