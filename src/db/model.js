@@ -1,12 +1,12 @@
-const { Pool } = require('pg');
+const { Pool } = require("pg");
 var pool;
 pool = new Pool();
 
 
 async function getCampus() {
-    const query = {
-        text: `SELECT C.campus_name, U.university_name FROM campus C JOIN university U ON C.university_id=U.university_id ORDER BY random()`,
-    }
+  const query = {
+    text: `SELECT C.campus_name, U.university_name FROM campus C JOIN university U ON C.university_id=U.university_id ORDER BY random()`,
+  }
 
     try {
         var result = await pool.query(query)
@@ -77,12 +77,25 @@ async function getUniversities() {
         text: `SELECT * FROM university`
     }
 
-    try {
-        var result = await pool.query(query)
-        return result.rows;
-    } catch (err) {
-        console.error(err)
-    }
+  try {
+    var result = await pool.query(query);
+    return result.rows;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function getHighscores() {
+  const query = {
+    text: `select u.username, g.score, g.duration, g.created_at, u.country from "user" u JOIN game_session g ON u.user_id=g.user_id order by g.score DESC, g.duration ASC;`,
+  };
+
+  try {
+    var result = await pool.query(query);
+    return result.rows;
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 async function getUniversity(id) {
@@ -106,5 +119,6 @@ module.exports = {
     loginUser,
     getUserData,
     getUniversities,
-    getUniversity
+    getUniversity,
+    getHighscores,
 }
