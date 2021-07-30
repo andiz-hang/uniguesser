@@ -10,3 +10,13 @@ function getDesc(id) {
         }
     });
 }
+
+$(document).ready(function () {
+    $("#logout-button").on("click", () => {
+      $.ajax({
+          method: "POST",
+          url: "/auth/logout",
+        });
+      location.href = "/";
+    });
+});

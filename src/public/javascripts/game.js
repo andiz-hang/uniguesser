@@ -23,6 +23,14 @@ $(document).ready(function () {
     let answer = $("input[name='selected-school']:checked").val();
     checkAnswer(answer);
   });
+
+  $("#logout-button").on("click", () => {
+    $.ajax({
+        method: "POST",
+        url: "/auth/logout",
+      });
+    location.href = "/";
+  });
 });
 
 function checkAnswer(answer) {
