@@ -7,7 +7,8 @@ CREATE TABLE "user" (
     user_id SERIAL PRIMARY KEY NOT NULL,
     username TEXT NOT NULL,
     password TEXT NOT NULL,
-    email TEXT
+    email TEXT,
+	country TEXT
 );
 
 CREATE TABLE university (
@@ -97,9 +98,11 @@ insert into campus (university_id, campus_name, street, city, province, country,
 
 
 -- Add users
-insert into "user" (username, password, email)
-			values ('one', 'one', 'one@one.com');
-insert into "user" (username, password, email)
-			values ('two', 'two', 'two@two.com');
-insert into "user" (username, password, email)
-			values ('three', 'three', 'three@three.com');
+insert into "user" (username, password, email, country)
+			values ('one', 'one', 'one@one.com', 'USA');
+insert into "user" (username, password, email, country)
+			values ('two', 'two', 'two@two.com', 'Namibia');
+insert into "user" (username, password, email, country)
+			values ('three', 'three', 'three@three.com', 'Brazil');
+insert into "user" (username, password, email, country)
+			values ('four', 'four', 'four@four.com', 'China');

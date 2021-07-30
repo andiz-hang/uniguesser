@@ -11,12 +11,22 @@ function displayList() {
     success: (data) => {
       highScoresList = data;
       for (let i = 0; i < highScoresList.length; i++) {
-        $(`<li>`)
+        if (!highScoresList[i].duration.minutes) {
+          highScoresList[i].duration.minutes = "0";
+        }
+      }
+
+      for (let i = 0; i < highScoresList.length; i++) {
+        $(`<tr>`)
           .html(
-            `<b>Session id: ${highScoresList[i].session_id}, User_id: ${highScoresList[i].user_id}, Score: ${highScoresList[i].score}, Duration: ${highScoresList[i].duration.seconds}, Date: ${highScoresList[i].created_at}</b>
+            `<td>${highScoresList[i].username}</td>
+            <td>${highScoresList[i].score}</td>
+            <td>${highScoresList[i].duration.minutes}:${highScoresList[i].duration.seconds}</td>
+            <td>${highScoresList[i].created_at}</td>
+            <td>${highScoresList[i].country}</td>
             `
           )
-          .appendTo("ul");
+          .appendTo("table");
       }
     },
   });

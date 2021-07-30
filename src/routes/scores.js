@@ -13,11 +13,11 @@ router.get("/list", async function (req, res, next) {
 
     for (let i = 0; i < highScores.length; i++) {
       highScoreList.push({
-        session_id: highScores[i].session_id,
-        user_id: highScores[i].user_id,
+        username: highScores[i].username,
         score: highScores[i].score,
         duration: highScores[i].duration,
         created_at: highScores[i].created_at,
+        country: highScores[i].country,
       });
     }
     res.json(highScoreList);

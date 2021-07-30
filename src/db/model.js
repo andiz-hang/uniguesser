@@ -72,7 +72,7 @@ async function getUniversities() {
 
 async function getHighscores() {
   const query = {
-    text: `SELECT * FROM game_session ORDER BY score DESC, duration ASC;`,
+    text: `select u.username, g.score, g.duration, g.created_at, u.country from "user" u JOIN game_session g ON u.user_id=g.user_id order by g.score DESC, g.duration ASC;`,
   };
 
   try {
