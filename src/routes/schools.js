@@ -13,18 +13,20 @@ router.get('/', async function(req, res, next) {
         for (let i = 0; i < campuses.length; i++) {
             let searchName = campuses[i].university_name + ' ' + campuses[i].campus_name;
             let photoRef = await getPhotoRef(searchName);
-            let photoUrl = await getPhoto(photoRef);
+            if (photoRef) {
+                let photoUrl = await getPhoto(photoRef);
     
-            // Some schools do not have photos on Google places
-            if (photoUrl) {
-                campusList.push({
-                    'campus_name': campuses[i].campus_name,
-                    'university_name': campuses[i].university_name,
-                    'photo_url': photoUrl
-                });
-            }
-            if (campusList.length == 5) {
-                break;
+                // Some schools do not have photos on Google places
+                if (photoUrl) {
+                    campusList.push({
+                        'campus_name': campuses[i].campus_name,
+                        'university_name': campuses[i].university_name,
+                        'photo_url': photoUrl
+                    });
+                }
+                if (campusList.length == 5) {
+                    break;
+                }
             }
         }
         res.json(campusList);
@@ -38,8 +40,13 @@ async function getPhotoRef(name) {
     const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${process.env.API_KEY}&input=${name}&inputtype=textquery&fields=photo`;
     try {
         var result = await makeRequest(url);
-        var photoRef = JSON.parse(result).candidates[0].photos[0].photo_reference;
-        return photoRef;
+        if (JSON.parse(result).candidates) {
+            var photoRef = JSON.parse(result).candidates[0].photos[0].photo_reference;
+            return photoRef;
+        } else {
+            return null;
+        }
+        
     } catch (err) {
         console.error(err)
     }
