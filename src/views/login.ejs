@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="/stylesheets/login.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
+        <script src='/javascripts/index.js' defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">UNIGUESSER</div>
+        </header>
+        <main>
+            <div id="login-form-container">
+                <form id="login-form" action="/auth/login-or-register" method="POST">
+                    <div>
+                        <label>Username</label>
+                        <input type="text" name="username" />
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" />
+                    </div>
+                    <div id="auth-buttons">
+                        <input type="submit" type="submit" name="action" value="login" />
+                        <input type="submit" type="submit" name="action" value="register" />
+                    </div>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

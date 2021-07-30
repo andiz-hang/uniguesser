@@ -1,0 +1,27 @@
+main {
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: blanchedalmond;
+}
+
+.container {
+    border: 1pt rgb(122, 122, 122) solid;
+    border-radius: 25px;
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    list-style-type: none;
+    font-size: larger;
+    margin: 0;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+
+    /* Prevent padding from overriding width */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.container li {
+    margin: 20px 0;
+}

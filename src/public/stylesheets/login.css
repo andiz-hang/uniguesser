@@ -34,18 +34,3 @@ main {
 #auth-buttons {
     text-align: center;
 }
-
-#profile-container {
-    border: 1pt rgb(122, 122, 122) solid;
-    border-radius: 25px;
-    width: 300px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 200px;
-    text-align: left;
-}
-
-#profile-container h2{
-    text-align: center;
-}

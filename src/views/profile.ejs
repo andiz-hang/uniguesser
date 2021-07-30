@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
+    <script src='/javascripts/index.js' defer></script>
+    <script src='/javascripts/profile.js' defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">UNIGUESSER</div>
+        <nav>
+            <a href="/" id="home-button" class="nav-option selected-page">
+                <div>Home</div>
+            </a>
+            <a href="/games" id="game-button" class="nav-option">
+                <div>Play Game</div>
+            </a>
+            <a href="/scores" id="scores-button" class="nav-option">
+                <div>High Scores</div>
+            </a>
+            <a href="/gallery" id="gallery-button" class="nav-option">
+                <div>Gallery</div>
+            </a>
+            <a id="logout-button" class="nav-option">
+                <div>Logout</div>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <!-- TODO: DELETE ME -->
+        <!-- <div id="profile-container">
+            <h2>Logged in as:</h2>
+            <table align="center">
+                <tr>
+                    <th>Username</th>
+                </tr>
+                <tr>
+                    <td><%#=session.username%></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <td><%#=session.email%></td>
+                </tr>
+            </table>
+        </div> -->
+
+        <h1>Welcome, <%= info.username %>! </h1>
+
+        <label for="login">LOGIN INFORMATION</label>
+        <ul class="container" name="login">
+            <li>USERNAME: <%= info.username %></li>
+            <li id="password"> PASSWORD: <button id="pw_btn" onclick="togglePW()">SHOW</button></li>
+        </ul>
+
+        <label for="personal">PERSONAL INFORMATION</label>
+        <ul class="container" name="personal">
+            <li>EMAIL: <%= info.email %></li>
+            <li>COUNTRY: *insert country here*</li>
+        </ul>
+
+    </main>
+</body>
+</html>
