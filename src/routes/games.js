@@ -3,7 +3,11 @@ var router = express.Router();
 var model = require("../db/model");
 
 router.get("/", function (req, res, next) {
-  res.render("game", { title: "Uniguesser" });
+  if (!req.session.user_id){
+      res.render('login');
+  } else {
+      res.render("game", { title: "Uniguesser" });
+  }
 });
 
 router.post("/", async function (req, res, next) {

@@ -4,8 +4,12 @@ var model = require('../db/model')
 
 
 router.get('/', async function(req, res, next) {
-    var schools = await model.getUniversities();
-    res.render('gallery', { schools: schools });
+    if (!req.session.user_id){
+        res.render('login');
+      } else {
+        var schools = await model.getUniversities();
+        res.render('gallery', { schools: schools });
+      }
 });
 
 router.get('/:id', async function(req, res, next) {
