@@ -34,10 +34,14 @@
     </header>
     <main>
       <div id="selection-window">
-        <select name="high_score" id="high_score_select">
+        <select
+          name="high_score"
+          id="high_score_select"
+          onchange="changeFunc();"
+        >
           <option value="Global" selected>Global High Scores</option>
-          <option value="National">National High Scores</option>
-          <option value="Regional">Regional High Scores</option>
+          <!-- <option value="National">National High Scores</option>
+          <option value="Regional">Regional High Scores</option> -->
           <option value="Personal">Personal High Scores</option>
         </select>
       </div>
@@ -59,7 +63,6 @@
           <% } %> -->
         </table>
       </div>
-      <ul id="highScoresList"></ul>
     </main>
   </body>
 </html>
