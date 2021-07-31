@@ -10,7 +10,7 @@ $(document).ready(function () {
     startGame();
   });
 
-  $('#replay-button').on("click", () =>{
+  $("#replay-button").on("click", () => {
     location.href = "/games";
   });
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
     endGame();
   });
 
-  $("#selection-form").on("submit", event => {
+  $("#selection-form").on("submit", (event) => {
     event.preventDefault();
     let answer = $("input[name='selected-school']:checked").val();
     checkAnswer(answer);
@@ -36,7 +36,7 @@ $(document).ready(function () {
 function checkAnswer(answer) {
   if (answer == schoolList[schoolIndex].university_name) {
     score++;
-    
+
     $("#score")[0].innerHTML = score;
   }
   if (schoolIndex < schoolList.length - 1) {
@@ -45,7 +45,6 @@ function checkAnswer(answer) {
     endGame();
   }
 }
-
 
 function startGame() {
   clearGameStats();
@@ -68,7 +67,7 @@ function startGame() {
         $("#timer")[0].innerHTML = timeDiff;
       }, 1000);
 
-      $("#start-button")[0].innerHTML = "Play again"
+      $("#start-button")[0].innerHTML = "Play again";
     },
   });
 }
@@ -87,7 +86,7 @@ function endGame() {
         .replace("T", " ")
         .replace("Z", ""),
     },
-    success: displayOverlay()
+    success: displayOverlay(),
   });
 }
 
@@ -101,7 +100,7 @@ function displayPhotoByUrl(url) {
 }
 
 function nextSchool() {
-  $("input[name='selected-school']").attr('checked', false);
+  $("input[name='selected-school']").attr("checked", false);
   schoolIndex++;
   displayPhotoByUrl(schoolList[schoolIndex].photo_url);
   $("#location_counter").text(
@@ -118,7 +117,7 @@ function clearGameStats() {
   schoolIndex = 0;
   $("#campus-photo").hide();
 
-  clearInterval(gameTimer)
+  clearInterval(gameTimer);
   $("#timer")[0].innerHTML = 0;
   $("#score")[0].innerHTML = 0;
   $("#location_counter").text("");
