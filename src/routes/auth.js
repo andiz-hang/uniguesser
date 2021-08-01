@@ -45,7 +45,7 @@ router.post('/register', async function(req, res, next) {
   }
 });
 
-router.post("/logout", async (req, res) => {
+router.get("/logout", async (req, res) => {
   delete req.session.user_id
   
   return res.redirect('/')
