@@ -23,6 +23,10 @@ router.post('/login-or-register', async function(req, res, next) {
     } else if (req.body.action == 'login') {
       const user = await model.getUserByUsername(req.body.username)
       
+      if (!user) {
+        return res.redirect('/login-error')
+      }
+      
       const password_hash = user.password
       const isValid = bcrypt.compareSync(req.body.password, password_hash)
 
