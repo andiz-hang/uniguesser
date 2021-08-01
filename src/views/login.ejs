@@ -52,6 +52,12 @@
                                 <input type="submit" type="submit" name="action" value="register" />
                             </div>
                         </form>
+                        <% if (success && success.length > 0) { %>
+                            <div class="flash success"><%= success[0] %></div>
+                        <% } %>
+                        <% if (error && error.length > 0) { %>
+                            <div class="flash error"><%= error[0] %></div>
+                        <% } %>
                     </td>
                 </tr>
             </table>
