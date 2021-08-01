@@ -31,8 +31,8 @@ async function insertScore(userId, data) {
 
 async function registerUser(data) {
   const query = {
-    text: `INSERT INTO "user" (username, password) VALUES($1, $2) RETURNING *;`,
-    values: [data.username, data.password],
+    text: `INSERT INTO "user" (username, password, country) VALUES($1, $2, $3) RETURNING *;`,
+    values: [data.username, data.password, data.country],
   };
 
   try {
@@ -99,6 +99,26 @@ async function getHighscores() {
   }
 }
 
+async function getHighscoresByCountry(country) {
+  const query = {
+    text: `
+      select u.username, g.user_id, g.score, g.duration, g.created_at, u.country
+      from "user" u JOIN game_session g
+      ON u.user_id=g.user_id
+      where u.country=$1
+      order by g.score DESC, g.duration ASC;
+    `,
+    values: [country]
+  };
+
+  try {
+    var result = await pool.query(query);
+    return result.rows;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 async function getUniversity(id) {
   const query = {
     text: `SELECT * FROM university WHERE university_id = $1`,
@@ -122,4 +142,5 @@ module.exports = {
   getUniversities,
   getUniversity,
   getHighscores,
+  getHighscoresByCountry
 };
