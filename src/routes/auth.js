@@ -10,7 +10,7 @@ router.get('/login-error', function(req, res, next) {
   res.send('Invalid credentials');
 });
 
-router.post('/login-or-register', async function(req, res, next) {
+router.post('/login', async function(req, res, next) {
   if (req.body.username && req.body.password) {
     if (req.body.action == 'register') {
       const password_hash = bcrypt.hashSync(req.body.password, BCRYPT_SALT_ROUNDS)
@@ -31,9 +31,10 @@ router.post('/login-or-register', async function(req, res, next) {
       const isValid = bcrypt.compareSync(req.body.password, password_hash)
 
       if (isValid) {
-        req.session.user_id = user.user_id
-        req.session.username = user.username
-        req.session.email = user.email
+        req.session.user_id = user.user_id;
+        req.session.username = user.username;
+        req.session.email = user.email;
+        req.session.country = user.country;
         return res.redirect('/')
       } else {
         return res.redirect('/login-error')
@@ -41,7 +42,19 @@ router.post('/login-or-register', async function(req, res, next) {
     }
   }
   
-  res.redirect('/auth/login-error')
+  return res.redirect('/auth/login-error')
+});
+
+router.post('/register', async function(req, res, next) {
+  if (req.body.username && req.body.password) {
+    var registeredUser = await model.registerUser({
+      username: req.body.username,
+      password: req.body.password,
+      country: req.body.country
+    })
+    req.session.user_id = registeredUser.user_id
+    return res.redirect('/')
+  }
 });
 
 router.post("/logout", async (req, res) => {

@@ -7,7 +7,6 @@ CREATE TABLE "user" (
     user_id SERIAL PRIMARY KEY NOT NULL,
     username TEXT NOT NULL,
     password TEXT NOT NULL,
-    email TEXT,
 	country TEXT
 );
 
@@ -125,15 +124,15 @@ insert into campus (university_id, campus_name, street, city, province, country,
 
 
 -- Add users
-insert into "user" (username, password, email, country)
-			values ('jason', 'trex', 'jason@red.com', 'USA');
-insert into "user" (username, password, email, country)
-			values ('trini', 'tiger', 'trini@yellow.com', 'Namibia');
-insert into "user" (username, password, email, country)
-			values ('zack', 'mastodon', 'zack@black.com', 'Brazil');
-insert into "user" (username, password, email, country)
-			values ('kim', 'pterodactyl', 'kim@pink.com', 'China');
-insert into "user" (username, password, email, country)
-			values ('billy', 'triceratops', 'billy@blue.com', 'Canada');
-insert into "user" (username, password, email, country)
-			values ('tommy', 'dragon', 'tommy@green.com', 'Antarctica');						
+insert into "user" (username, password, country)
+			values ('jason', 'red', 'USA');
+insert into "user" (username, password, country)
+			values ('trini', 'yellow', 'Namibia');
+insert into "user" (username, password, country)
+			values ('zack', 'black', 'Brazil');
+insert into "user" (username, password, country)
+			values ('kim', 'pink', 'China');
+insert into "user" (username, password, country)
+			values ('billy', 'blue', 'Canada');
+insert into "user" (username, password, country)
+			values ('tommy', 'green', 'Antarctica');

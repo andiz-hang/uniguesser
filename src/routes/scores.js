@@ -52,4 +52,29 @@ router.get("/personallist", async function (req, res, next) {
     res.status(422).send("Unable to generate the list of personal highscores!");
   }
 });
+
+router.get("/country-list", async function (req, res, next) {
+  try {
+    var highScoreList = [];
+
+    if ((req.session.country).length > 0) {
+      var highScores = await model.getHighscoresByCountry(req.session.country);
+
+      for (let i = 0; i < Math.min(highScores.length, 20); i++) {
+        highScoreList.push({
+          username: highScores[i].username,
+          score: highScores[i].score,
+          duration: highScores[i].duration,
+          created_at: highScores[i].created_at,
+          country: highScores[i].country,
+        });
+      }
+    }
+
+    res.json(highScoreList);
+  } catch (err) {
+    res.status(422).send("Unable to generate the list of highscores!");
+  }
+});
+
 module.exports = router;
