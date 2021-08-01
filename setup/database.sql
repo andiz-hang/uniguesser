@@ -126,10 +126,14 @@ insert into campus (university_id, campus_name, street, city, province, country,
 
 -- Add users
 insert into "user" (username, password, email, country)
-			values ('one', 'one', 'one@one.com', 'USA');
+			values ('jason', 'trex', 'jason@red.com', 'USA');
 insert into "user" (username, password, email, country)
-			values ('two', 'two', 'two@two.com', 'Namibia');
+			values ('trini', 'tiger', 'trini@yellow.com', 'Namibia');
 insert into "user" (username, password, email, country)
-			values ('three', 'three', 'three@three.com', 'Brazil');
+			values ('zack', 'mastodon', 'zack@black.com', 'Brazil');
 insert into "user" (username, password, email, country)
-			values ('four', 'four', 'four@four.com', 'China');
+			values ('kim', 'pterodactyl', 'kim@pink.com', 'China');
+insert into "user" (username, password, email, country)
+			values ('billy', 'triceratops', 'billy@blue.com', 'Canada');
+insert into "user" (username, password, email, country)
+			values ('tommy', 'dragon', 'tommy@green.com', 'Antarctica');						
