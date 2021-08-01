@@ -3,7 +3,11 @@ var router = express.Router();
 var model = require("../db/model");
 
 router.get("/", function (req, res, next) {
-  res.render("high_scores", { title: "High Scores" });
+  if (!req.session.user_id){
+    res.render('login');
+  } else {
+    res.render("high_scores", { title: "High Scores" });
+  }
 });
 
 router.get("/list", async function (req, res, next) {
