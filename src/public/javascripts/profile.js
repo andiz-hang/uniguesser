@@ -1,29 +1,31 @@
-function togglePW() {
-    if ($('#pw_btn').text() === 'SHOW') {
-        $.ajax({
-            method: "GET",
-            url: "/pw",
-            success: pw => {
-                $('#password').empty();
-                $('#password').html('PASSWORD: ' + pw + ' ');
-                var btn = $('<button/>',
-                {
-                    id: 'pw_btn',
-                    text: 'HIDE',
-                    click: () => { togglePW(); }
-                });
-                $('#password').append(btn);
-            }
-        });
-    } else {
-        $('#password').empty();
-        $('#password').html('PASSWORD: ');
-        var btn = $('<button/>',
-        {
-            id: 'pw_btn',
-            text: 'SHOW',
-            click: () => { togglePW(); }
-        });
-        $('#password').append(btn);
-    }
+function editUser() {
+
+    var inp = $('<input/>', {
+        id: 'inp_edit',
+        placeholder: 'New Username'
+    });
+    $('#username').append(inp);
+
+    var btn = $('<button/>', {
+        id: 'btn_edit',
+        text: 'Confirm',
+        click: () => {
+            $.ajax({
+                method: "GET",
+                url: "/user-info",
+                success: data => updateUserData(data)
+            });
+        }
+    });
+    $('#username').append(btn);
+}
+
+function updateUserData(data) {
+    data.username = $('#inp_edit').val();
+    $.ajax({
+        method: "POST",
+        url: "/user-info",
+        data: data,
+        success: res => {window.location.href = "/";}
+    });
 }

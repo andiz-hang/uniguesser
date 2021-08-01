@@ -133,6 +133,20 @@ async function getUniversity(id) {
   }
 }
 
+async function editUserData(data) {
+    const query = {
+      text: `UPDATE "user" SET username = $2, password = $3, country = $4 WHERE user_id = $1`,
+      values: [data.user_id, data.username, data.password, data.country],
+    };
+  
+    try {
+      var result = await pool.query(query);
+      return result.rows[0];
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
 module.exports = {
   getCampus,
   insertScore,
@@ -142,5 +156,6 @@ module.exports = {
   getUniversities,
   getUniversity,
   getHighscores,
-  getHighscoresByCountry
+  getHighscoresByCountry,
+  editUserData
 };

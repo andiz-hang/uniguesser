@@ -18,8 +18,7 @@
 
         <label for="login">LOGIN INFORMATION</label>
         <ul class="container" name="login">
-            <li>USERNAME: <%= info.username %></li>
-            <li id="password"> PASSWORD: <button id="pw_btn" onclick="togglePW()">SHOW</button></li>
+            <li id="username">USERNAME: <%= info.username %> <button id="edit_user" onclick="editUser()">EDIT</button></li>
         </ul>
 
         <label for="personal">PERSONAL INFORMATION</label>
