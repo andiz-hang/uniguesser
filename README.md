@@ -29,6 +29,7 @@ A game where users are shown photos of different universities in Canada and must
 
     ```
     cd cmpt470-uniguesser
+    cd src
     npm i
     ```
 
