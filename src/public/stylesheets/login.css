@@ -1,36 +1,87 @@
+/* Tried imitating the css styling from https://www.antdv.com/ */
+
 main {
     vertical-align: middle;
     align-items: center;
 }
 
-#login-form-container {
-    display: grid;
-    width: 400px;
-    height: 250px;
+#registration-form {
+    display: none;
+}
 
-    margin-left: auto;
-    margin-right: auto;
+.tabbed-card {
+    border-collapse: collapse;
+
+    width: 401px; /*400 px + 1px border in the middle*/
+    height: auto;
+
     margin-top: 200px;
-    border: 1pt rgb(122, 122, 122) solid;
-    border-radius: 25px;
-
-    align-items: center;
+    border: 1px solid #e8e8e8;
 }
 
-#login-form{
-   margin-left: auto;
-   margin-right: auto
+#tabs {
+    line-height: 50px;
 }
 
-#login-form div {
+.tabbed-card th {
+    height: 100%;
+    width: 50%;
+    text-align: center;
+
+    font-weight: normal;
+}
+
+.tabbed-card th:hover {
+    cursor: pointer;
+}
+
+.tabbed-card .selected-tab div {
+    display: inline-block;
+    height: 100%;
+    color: #1890ff;
+    font-weight: bold;
+    box-shadow: 0px 2px;
+}
+
+#form-row{
+    border: 1px solid #e8e8e8;
+    align-content: center;
+}
+
+#login-form, #registration-form {
+    margin-left: 50px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
-#login-form label {
+#login-form div, #registration-form div {
+    margin-bottom: 20px;
+}
+
+#login-form label, #registration-form label {
     display: inline-block;
     width: 100px;
 }
 
 #auth-buttons {
+    /*100px + padding of labels/inputs in order to align with inputs*/
+    padding-left: 105px;
+}
+
+#auth-buttons input{
+    padding: 8px;
+    width: 100px;
+
+    border: 1pt white solid;
+    background-color: #1890ff;
+    border-radius: 4px;
     text-align: center;
+
+    font-size: 16px;
+    color: white;
+    outline: none;
+}
+
+#auth-buttons input:hover{
+    cursor: pointer;
 }

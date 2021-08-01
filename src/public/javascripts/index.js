@@ -22,5 +22,19 @@ $(document).ready(function(){
           });
         location.href = "/";
     });
+
+    $("#register-tab").on("click", () => {
+        $("#register-tab").addClass("selected-tab");
+        $("#login-tab").removeClass("selected-tab");
+        $("#login-form").hide();
+        $("#registration-form").show();
+    });
+
+    $("#login-tab").on("click", () => {
+        $("#login-tab").addClass("selected-tab");
+        $("#register-tab").removeClass("selected-tab");
+        $("#registration-form").hide();
+        $("#login-form").show();
+    });
 });
 
