@@ -11,26 +11,7 @@
     <script src="/javascripts/game.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="logo">UNIGUESSER</div>      
-      <nav>
-        <a href="/" id="home-button" class="nav-option">
-          <div>Home</div>
-        </a>
-        <a href="/games" id="game-button" class="nav-option selected-page">
-          <div>Play Game</div>
-        </a>
-        <a href="/scores" id="scores-button" class="nav-option">
-          <div>High Scores</div>
-        </a>
-        <a href="/gallery" id="gallery-button" class="nav-option">
-          <div>Gallery</div>
-        </a>
-        <a id="logout-button" class="nav-option">
-          <div>Logout</div>
-        </a>
-      </nav>
-    </header>
+    <%- include('partial/_header') %>
     <main>
       <!-- Left grid column -->
       <div id="left-column" class="window">

@@ -12,46 +12,8 @@
     <script src='/javascripts/profile.js' defer></script>
 </head>
 <body>
-    <header>
-        <div class="logo">UNIGUESSER</div>
-        <nav>
-            <a href="/" id="home-button" class="nav-option selected-page">
-                <div>Home</div>
-            </a>
-            <a href="/games" id="game-button" class="nav-option">
-                <div>Play Game</div>
-            </a>
-            <a href="/scores" id="scores-button" class="nav-option">
-                <div>High Scores</div>
-            </a>
-            <a href="/gallery" id="gallery-button" class="nav-option">
-                <div>Gallery</div>
-            </a>
-            <a id="logout-button" class="nav-option">
-                <div>Logout</div>
-            </a>
-        </nav>
-    </header>
+    <%- include('partial/_header') %>
     <main>
-        <!-- TODO: DELETE ME -->
-        <!-- <div id="profile-container">
-            <h2>Logged in as:</h2>
-            <table align="center">
-                <tr>
-                    <th>Username</th>
-                </tr>
-                <tr>
-                    <td><%#=session.username%></td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                </tr>
-                <tr>
-                    <td><%#=session.email%></td>
-                </tr>
-            </table>
-        </div> -->
-
         <h1>Welcome, <%= info.username %>! </h1>
 
         <label for="login">LOGIN INFORMATION</label>
@@ -65,7 +27,6 @@
             <li>EMAIL: <%= info.email %></li>
             <li>COUNTRY: *insert country here*</li>
         </ul>
-
     </main>
 </body>
 </html>
