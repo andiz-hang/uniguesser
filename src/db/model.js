@@ -43,18 +43,20 @@ async function registerUser(data) {
   }
 }
 
-async function loginUser(data) {
+async function getUserByUsername(username) {
   const query = {
-    text: `SELECT * FROM "user" WHERE username = $1 AND password = $2`,
-    values: [data.username, data.password],
+    text: `SELECT * FROM "user" WHERE username = $1`,
+    values: [username],
   };
 
   try {
-    var result = await pool.query(query);
+    const result = await pool.query(query);
     return result.rows[0];
   } catch (err) {
     console.error(err);
   }
+
+  return null;
 }
 
 async function getUserData(id) {
@@ -115,7 +117,7 @@ module.exports = {
   getCampus,
   insertScore,
   registerUser,
-  loginUser,
+  getUserByUsername,
   getUserData,
   getUniversities,
   getUniversity,
