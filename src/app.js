@@ -31,6 +31,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
+app.use(function(req, res, next) {
+  res.locals.url   = req.originalUrl
+
+  next()
+})
+
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/universities', schoolsRouter);

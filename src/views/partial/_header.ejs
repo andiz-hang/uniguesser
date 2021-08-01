@@ -1,16 +1,16 @@
 <header>
   <%- include('_logo') %>
   <nav>
-    <a href="/" id="home-button" class="nav-option">
+    <a href="/" id="home-button" class="nav-option <%= url === "/" ? "selected-page" : "" %>">
       <div>Home</div>
     </a>
-    <a href="/games" id="game-button" class="nav-option">
+    <a href="/games" id="game-button" class="nav-option <%= url.startsWith("/games") ? "selected-page" : "" %>">
       <div>Play Game</div>
     </a>
-    <a href="/scores" id="scores-button" class="nav-option selected-page">
+    <a href="/scores" id="scores-button" class="nav-option <%= url.startsWith("/scores") ? "selected-page" : "" %>">
       <div>High Scores</div>
     </a>
-    <a href="/gallery" id="gallery-button" class="nav-option">
+    <a href="/gallery" id="gallery-button" class="nav-option <%= url.startsWith("/gallery") ? "selected-page" : "" %>">
       <div>Gallery</div>
     </a>
     <a href="/auth/logout" id="logout-button" class="nav-option">
