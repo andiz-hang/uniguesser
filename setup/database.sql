@@ -125,14 +125,14 @@ insert into campus (university_id, campus_name, street, city, province, country,
 
 -- Add users
 insert into "user" (username, password, country)
-			values ('jason', 'red', 'USA');
+			values ('jason', '$2b$10$6./cFDETHc8lWMwzRxF0JOtsdJ.S5qFM4BOk2iy9o0AKIDAEm62y2', 'USA'); -- password: red
 insert into "user" (username, password, country)
-			values ('trini', 'yellow', 'Namibia');
+			values ('trini', '$2b$10$gzhyp2/OK7f1ZpN7IvsV1.5rS22Moy3q8KMjecWsF8scEp1Rb4f02', 'Namibia'); -- password: yellow
 insert into "user" (username, password, country)
-			values ('zack', 'black', 'Brazil');
+			values ('zack', '$2b$10$sPRw/N.F7NuUUrYwOl/Ntud6Lmn5Gq79yRhcFBP3XsDTZUF15BFz.', 'Brazil'); -- password: black
 insert into "user" (username, password, country)
-			values ('kim', 'pink', 'China');
+			values ('kim', '$2b$10$oY15KMHMGUg1ihjapBVSR..Ilnt7er4/BJnMrUoChHryiEDYR7QzW', 'China'); -- password: pink
 insert into "user" (username, password, country)
-			values ('billy', 'blue', 'Canada');
+			values ('billy', '$2b$10$jbGxx.9lc9vE5ENMUMcI2uB5mVTFZ65zh8/4DHwzF/nOd3nayB4Im', 'Canada'); -- password: blue
 insert into "user" (username, password, country)
-			values ('tommy', 'green', 'Antarctica');
+			values ('tommy', '$2b$10$jhQfbfH4e6EkWu4t99bPb.qVZ67Hxypr.W3sv7dFxX5X7klRHcA5y', 'Antarctica'); -- password: green
