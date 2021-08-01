@@ -13,15 +13,42 @@ function editUser() {
             $.ajax({
                 method: "GET",
                 url: "/user-info",
-                success: data => updateUserData(data)
+                success: data => {
+                    data.username = $('#inp_edit').val();
+                    updateUserData(data);
+                }
             });
         }
     });
     $('#username').append(btn);
 }
 
+function editCountry() {
+
+    var inp = $('<input/>', {
+        id: 'inp_edit_country',
+        placeholder: 'New Country'
+    });
+    $('#country').append(inp);
+
+    var btn = $('<button/>', {
+        id: 'btn_edit_country',
+        text: 'Confirm',
+        click: () => {
+            $.ajax({
+                method: "GET",
+                url: "/user-info",
+                success: data => {
+                    data.country = $('#inp_edit_country').val();
+                    updateUserData(data);
+                }
+            });
+        }
+    });
+    $('#country').append(btn);
+}
+
 function updateUserData(data) {
-    data.username = $('#inp_edit').val();
     $.ajax({
         method: "POST",
         url: "/user-info",
