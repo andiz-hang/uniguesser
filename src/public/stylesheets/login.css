@@ -85,3 +85,15 @@ main {
 #auth-buttons input:hover{
     cursor: pointer;
 }
+
+.flash {
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.flash.success {
+    color: rgb(77, 223, 64);
+}
+.flash.error {
+    color: rgb(255, 90, 90);
+}

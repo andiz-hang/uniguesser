@@ -5,17 +5,13 @@ const bcrypt = require('bcrypt');
 
 const BCRYPT_SALT_ROUNDS = 10
 
-/* GET users listing. */
-router.get('/login-error', function(req, res, next) {
-  res.send('Invalid credentials');
-});
-
 router.post('/login', async function(req, res, next) {
   if (req.body.username && req.body.password) {
     const user = await model.getUserByUsername(req.body.username)
     
     if (!user) {
-      return res.redirect('/login-error')
+      req.flash('error', 'Invalid credentials')
+      return res.redirect('/')
     }
     
     const password_hash = user.password
@@ -23,13 +19,16 @@ router.post('/login', async function(req, res, next) {
 
     if (isValid) {
       setUserSession(req, user)
+      req.flash('success', 'Logged in!')
       return res.redirect('/')
     } else {
-      return res.redirect('/login-error')
+      req.flash('error', 'Invalid credentials')
+      return res.redirect('/')
     }
   }
   
-  return res.redirect('/auth/login-error')
+  req.flash('error', 'Invalid credentials')
+  return res.redirect('/')
 });
 
 router.post('/register', async function(req, res, next) {
@@ -41,13 +40,14 @@ router.post('/register', async function(req, res, next) {
       country: req.body.country
     })
     setUserSession(req, registeredUser)
+    req.flash('success', 'Registered!')
     return res.redirect('/')
   }
 });
 
 router.get("/logout", async (req, res) => {
   delete req.session.user_id
-  
+  req.flash('success', 'Logged out!')
   return res.redirect('/')
 })
 

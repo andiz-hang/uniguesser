@@ -16,6 +16,13 @@
     <main>
         <h1>Welcome, <%= info.username %>! </h1>
 
+        <% if (success && success.length > 0) { %>
+            <div class="flash success"><%= success[0] %></div>
+        <% } %>
+        <% if (error && error.length > 0) { %>
+            <div class="flash error"><%= error[0] %></div>
+        <% } %>
+
         <label for="login">LOGIN INFORMATION</label>
         <ul class="container" name="login">
             <li id="username">USERNAME: <%= info.username %> <button id="edit_user" onclick="editUser()">EDIT</button></li>
