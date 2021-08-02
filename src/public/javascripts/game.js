@@ -51,13 +51,14 @@ function startGame() {
 
   $.ajax({
     method: "get",
-    url: "/universities",
+    url: "/schools",
     success: (data) => {
       schoolList = data;
       $("#location_counter").text(
         `Location: ${schoolIndex + 1}/${schoolList.length}`
       );
-      displayPhotoByUrl(schoolList[0].photo_url);
+
+      getPhoto(schoolList[0]['photo_ref'])
 
       var startTime = new Date();
 
@@ -68,6 +69,16 @@ function startGame() {
       }, 1000);
 
       $("#start-button")[0].innerHTML = "Play again";
+    },
+  });
+}
+
+function getPhoto(photoRef) {
+$.ajax({
+    method: "get",
+    url: "/schools/" + photoRef,
+    success: (data) => {
+      displayPhoto(data)
     },
   });
 }
@@ -90,9 +101,11 @@ function endGame() {
   });
 }
 
-function displayPhotoByUrl(url) {
+async function displayPhoto(image) {
+  // reference: https://stackoverflow.com/questions/9267899/arraybuffer-to-base64-encoded-string
   var img = new Image();
-  img.src = url;
+  var data = btoa(String.fromCharCode(...new Uint8Array(image.buff.data)))
+  img.src = 'data:image/jpeg;base64,' + data;
   img.height = "395";
   img.id = "campus-photo";
   $("#campus-photo").replaceWith(img);
@@ -102,7 +115,7 @@ function displayPhotoByUrl(url) {
 function nextSchool() {
   $("input[name='selected-school']").attr("checked", false);
   schoolIndex++;
-  displayPhotoByUrl(schoolList[schoolIndex].photo_url);
+  getPhoto(schoolList[schoolIndex].photo_ref)
   $("#location_counter").text(
     `Location: ${schoolIndex + 1}/${schoolList.length}`
   );
