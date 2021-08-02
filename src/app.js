@@ -39,7 +39,7 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/universities', schoolsRouter);
+app.use('/schools', schoolsRouter);
 app.use('/games', gamesRouter);
 app.use('/scores', scoresRouter);
 app.use('/gallery', galleryRouter);
