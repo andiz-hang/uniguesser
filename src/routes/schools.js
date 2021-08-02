@@ -3,7 +3,7 @@ var router = express.Router();
 var model = require('../db/model')
 var https = require('https');
 var htmlParser = require('node-html-parser');
-
+const fetch = require('node-fetch');
 
 router.get('/', async function(req, res, next) {
     try {
@@ -16,17 +16,14 @@ router.get('/', async function(req, res, next) {
 
             // Some schools do not have photos on Google places
             if (photoRef) {
-                let photoUrl = await getPhoto(photoRef);
-                if (photoUrl) {
                     campusList.push({
                         'campus_name': campuses[i].campus_name,
                         'university_name': campuses[i].university_name,
-                        'photo_url': photoUrl
+                        'photo_ref': photoRef
                     });
                 }
                 if (campusList.length == 5) {
                     break;
-                }
             }
         }
         res.json(campusList);
@@ -35,14 +32,30 @@ router.get('/', async function(req, res, next) {
     }
 });
 
+router.get('/:photoRef', async function(req, res, next) {
+    try {
+        // Reference: https://stackoverflow.com/questions/52665103/using-express-how-to-send-blob-object-as-response
+        var data = await getPhoto(req.params.photoRef);
+        var arrayBuff = await data.arrayBuffer()
+        var buff = Buffer.from(arrayBuff)
+        var result = {
+            buff
+        };
+        res.send(result)
+    } catch (err) {
+        console.error
+        res.status(422).send("Unable to retrieve photo!");
+    }
+});
+
 // Reference: https://developers.google.com/maps/documentation/places/web-service/search
 async function getPhotoRef(name) {
     const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${process.env.API_KEY}&input=${name}&inputtype=textquery&fields=photo`;
     try {
-        var result = await makeRequest(url);
-        var resultObject = JSON.parse(result);
-        if (Object.keys(resultObject.candidates[0]).length >= 1) {
-            var photoRef = resultObject.candidates[0].photos[0].photo_reference;
+        var result = await fetch(url)
+        const jsonResult = await result.json()
+        if (Object.keys(jsonResult.candidates[0]).length >= 1) {
+            var photoRef = jsonResult.candidates[0].photos[0].photo_reference;
             return photoRef;
         } else {
             return null;
@@ -56,38 +69,12 @@ async function getPhotoRef(name) {
 async function getPhoto(photoRef) {
     const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photoRef}&key=${process.env.API_KEY}`;
     try {
-        var result = await makeRequest(url);
-        var returnedHtml = htmlParser.parse(result);
-        var photoUrl = (returnedHtml.querySelector('a').rawAttributes)['HREF'];
-        return photoUrl;
+        var result = await fetch(url)
+        var photoBlob = await result.blob()
+        return photoBlob;
     } catch (err) {
         console.error(err)
     }
-}
-
-// Reference: https://www.twilio.com/blog/2017/08/http-requests-in-node-js.html
-async function makeRequest(url) {
-    return new Promise((resolve, reject) => {
-        https.get(url, (resp) => {
-            let data = '';
-    
-            // A chunk of data has been received.
-            resp.on('data', (chunk) => {
-              data += chunk;
-            });
-          
-            // The whole response has been received. Print out the result.
-            resp.on('end', () => {
-                try {
-                    resolve(data);
-                } catch (err) {
-                    reject();
-                }
-            });
-          }).on("error", (err) => {
-            reject()
-          });
-    });
 }
 
 module.exports = router;

@@ -73,7 +73,7 @@ async function getUserData(id) {
   }
 }
 
-async function getUniversities() {
+async function getSchools() {
   const query = {
     text: `SELECT * FROM university`,
   };
@@ -153,7 +153,7 @@ module.exports = {
   registerUser,
   getUserByUsername,
   getUserData,
-  getUniversities,
+  getSchools,
   getUniversity,
   getHighscores,
   getHighscoresByCountry,
