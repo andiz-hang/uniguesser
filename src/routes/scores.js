@@ -4,7 +4,8 @@ var model = require("../db/model");
 
 router.get("/", function (req, res, next) {
   if (!req.session.user_id){
-    res.render('login');
+    req.flash('error', 'You are not logged in.')
+    return res.redirect('/');
   } else {
     res.render("high_scores", { title: "High Scores" });
   }

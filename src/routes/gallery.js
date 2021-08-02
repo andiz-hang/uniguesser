@@ -5,7 +5,8 @@ var model = require('../db/model')
 
 router.get('/', async function(req, res, next) {
     if (!req.session.user_id){
-        res.render('login');
+        req.flash('error', 'You are not logged in.')
+        return res.redirect('/');
       } else {
         var schools = await model.getSchools();
         res.render('gallery', { schools: schools });
