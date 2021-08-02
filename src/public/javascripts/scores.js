@@ -24,7 +24,7 @@ function displayList() {
         sessionTimestamp.setMinutes(sessionTimestamp.getMinutes() - offset);
         let formattedString = formatDateString(sessionTimestamp);
 
-        let durationSeconds = highScoresList[i].duration.seconds > 10 ? `${highScoresList[i].duration.seconds}` : `0${highScoresList[i].duration.seconds}`
+        let durationSeconds = highScoresList[i].duration.seconds >= 10 ? `${highScoresList[i].duration.seconds}` : `0${highScoresList[i].duration.seconds}`
 
         $(`<tr>`)
           .html(
@@ -63,7 +63,7 @@ function displayListByCountry() {
         sessionTimestamp.setMinutes(sessionTimestamp.getMinutes() - offset);
         let formattedString = formatDateString(sessionTimestamp);
 
-        let durationSeconds = highScoresList[i].duration.seconds > 10 ? `${highScoresList[i].duration.seconds}` : `0${highScoresList[i].duration.seconds}`
+        let durationSeconds = highScoresList[i].duration.seconds >= 10 ? `${highScoresList[i].duration.seconds}` : `0${highScoresList[i].duration.seconds}`
 
         $(`<tr>`)
           .html(
