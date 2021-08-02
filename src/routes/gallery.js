@@ -7,7 +7,7 @@ router.get('/', async function(req, res, next) {
     if (!req.session.user_id){
         res.render('login');
       } else {
-        var schools = await model.getUniversities();
+        var schools = await model.getSchools();
         res.render('gallery', { schools: schools });
       }
 });
