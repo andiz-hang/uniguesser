@@ -4,10 +4,20 @@ var gameTimer;
 var score = 0;
 var firstAttempt = true;
 
+const playSound = (soundFile) => {
+  const audio = new Audio(soundFile);
+  audio.play();
+}
+
+const playSuccess = () => playSound('sound/score.wav')
+const playMiss = () => playSound('sound/miss.wav')
+const playStartGame = () => playSound('sound/startgame.wav')
+
 $(document).ready(function () {
   $("#start-button").on("click", () => {
     $("#overlay").hide();
     startGame();
+    playStartGame()
   });
 
   $("#replay-button").on("click", () => {
@@ -38,7 +48,11 @@ function checkAnswer(answer) {
     score++;
 
     $("#score")[0].innerHTML = score;
+    playSuccess();
+  } else {
+    playMiss();
   }
+
   if (schoolIndex < schoolList.length - 1) {
     nextSchool();
   } else {

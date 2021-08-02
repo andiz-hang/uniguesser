@@ -113,3 +113,11 @@ Implemented features:
 To-be implemented:
 - High score page
   - Shows list of top users based on different queries (e.g., highest score, fastest time, etc.)
+
+# Credits
+
+Sound files were taken from (and created by users of) the freesoundproject website.
+
+* https://freesound.org/people/Robinhood76/sounds/335188/
+* https://freesound.org/people/Aiwha/sounds/196106/
+* https://freesound.org/people/distillerystudio/sounds/327735/
