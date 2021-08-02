@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
 app.use(function(req, res, next) {
-  res.locals.url   = req.originalUrl
+  res.locals.url = req.originalUrl
 
   next()
 })

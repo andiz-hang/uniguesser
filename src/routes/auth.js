@@ -33,6 +33,15 @@ router.post('/login', async function(req, res, next) {
 
 router.post('/register', async function(req, res, next) {
   if (req.body.username && req.body.password) {
+    if (req.body.username.length < 4) {
+      req.flash('error', 'Your username is too short (4 characters minimum)')
+      return res.redirect('/')
+    }
+    if (req.body.password.length < 6) {
+      req.flash('error', 'Your password is too short (6 characters minimum)')
+      return res.redirect('/')
+    }
+    
     const password_hash = bcrypt.hashSync(req.body.password, BCRYPT_SALT_ROUNDS)
     const registeredUser = await model.registerUser({
       username: req.body.username,
