@@ -43,28 +43,44 @@ router.post('/register', async function(req, res, next) {
     }
     
     const password_hash = bcrypt.hashSync(req.body.password, BCRYPT_SALT_ROUNDS)
-    const registeredUser = await model.registerUser({
-      username: req.body.username,
-      password: password_hash,
-      country: req.body.country
-    })
-    setUserSession(req, registeredUser)
-    req.flash('success', 'Registered!')
+
+    const user = await model.getUserByUsername(req.body.username)
+    
+    if (!user) {
+      const registeredUser = await model.registerUser({
+        username: req.body.username,
+        password: password_hash,
+        country: req.body.country
+      })
+      
+      setUserSession(req, registeredUser)
+      req.flash('success', 'Registered!')
+    } else {
+      setUserSession(req, null)
+      req.flash('error', 'Username taken.')  
+    }
     return res.redirect('/')
   }
 });
 
 router.get("/logout", async (req, res) => {
-  delete req.session.user_id
+  setUserSession(req, null)
   req.flash('success', 'Logged out!')
   return res.redirect('/')
 })
 
 function setUserSession(req, user) {
-  req.session.user_id = user.user_id
-  req.session.username = user.username
-  req.session.email = user.email
-  req.session.country = user.country
+  if (user) {
+    req.session.user_id = user.user_id
+    req.session.username = user.username
+    req.session.email = user.email
+    req.session.country = user.country
+  } else {
+    delete req.session.user_id
+    delete req.session.username
+    delete req.session.email
+    delete req.session.country
+  }
 }
 
 module.exports = router;
