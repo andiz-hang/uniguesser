@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link rel="stylesheet" href="/stylesheets/login.css">
-        <link rel="stylesheet" href="/stylesheets/style.css">
-        <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
-        <script src='/javascripts/index.js' defer></script>
-    </head>
-    <body>
-        <header>
-            <%- include('partial/_logo') %>
-        </header>
-        <main>
-            <table class="tabbed-card" align="center">
-                <tr id="tabs">
-                    <th id="login-tab" class="selected-tab"><div>Login</div></th>
-                    <th id="register-tab"><div>Register</div></th>
-                </tr>
-                <tr id="form-row">
-                    <td colspan="2">
-                        <form id="login-form" action="/auth/login" method="POST">
-                            <div>
-                                <label>Username</label>
-                                <input type="text" name="username" required/>
-                            </div>
-                            <div>
-                                <label>Password</label>
-                                <input type="password" name="password" required/>
-                            </div>
-                            <div id="auth-buttons">
-                                <input type="submit" type="submit" name="action" value="login" />
-                            </div>
-                        </form>
-                        <form id="registration-form" action="/auth/register" method="POST">
-                            <div>
-                                <label>Username</label>
-                                <input type="text" name="username" required/>
-                            </div>
-                            <div>
-                                <label>Password</label>
-                                <input type="password" name="password" required/>
-                            </div>
-                            <div>
-                                <label>Country</label>
-                                <input type="text" name="country" />
-                            </div>
-                            <div id="auth-buttons">
-                                <input type="submit" type="submit" name="action" value="register" />
-                            </div>
-                        </form>
-                        <% if (success && success.length > 0) { %>
-                            <div class="flash success"><%= success[0] %></div>
-                        <% } %>
-                        <% if (error && error.length > 0) { %>
-                            <div class="flash error"><%= error[0] %></div>
-                        <% } %>
-                    </td>
-                </tr>
-            </table>
-        </main>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
+    <script src="/javascripts/index.js" defer></script>
+  </head>
+  <body>
+    <header><%- include('partial/_logo') %></header>
+    <main>
+      <table class="tabbed-card" align="center">
+        <tr id="tabs">
+          <th id="login-tab" class="selected-tab"><div>Login</div></th>
+          <th id="register-tab"><div>Register</div></th>
+        </tr>
+        <tr id="form-row">
+          <td colspan="2">
+            <form id="login-form" action="/auth/login" method="POST">
+              <div>
+                <label>Username</label>
+                <input type="text" name="username" required />
+              </div>
+              <div>
+                <label>Password</label>
+                <input type="password" name="password" required />
+              </div>
+              <div id="auth-buttons">
+                <input
+                  type="submit"
+                  type="submit"
+                  name="action"
+                  value="Login"
+                />
+              </div>
+            </form>
+            <form id="registration-form" action="/auth/register" method="POST">
+              <div>
+                <label>Username</label>
+                <input type="text" name="username" required />
+              </div>
+              <div>
+                <label>Password</label>
+                <input type="password" name="password" required />
+              </div>
+              <div>
+                <label>Country</label>
+                <input type="text" name="country" />
+              </div>
+              <div id="auth-buttons">
+                <input
+                  type="submit"
+                  type="submit"
+                  name="action"
+                  value="register"
+                />
+              </div>
+            </form>
+            <% if (success && success.length > 0) { %>
+            <div class="flash success"><%= success[0] %></div>
+            <% } %> <% if (error && error.length > 0) { %>
+            <div class="flash error"><%= error[0] %></div>
+            <% } %>
+          </td>
+        </tr>
+      </table>
+    </main>
+  </body>
 </html>

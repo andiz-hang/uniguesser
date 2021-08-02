@@ -31,23 +31,21 @@
       <!-- Middle grid column -->
       <div id="right-column">
         <div id="top-row">
-          <table class="stats" align='center'>
+          <table class="stats" align="center">
             <tr>
               <th>Score:</th>
               <td>
                 <span id="score">0</span>
               </td>
               <th>Timer:</th>
-              <td>
-                <time id="timer">0</time>
-              </td>
+              <td><time id="timer">0</time> seconds</td>
             </tr>
           </table>
         </div>
 
         <div id="bottom-row">
           <div id="overlay">
-              <button id="start-button">Start game</button>
+            <button id="start-button"><b>START GAME</b></button>
           </div>
           <div id="left-inner-col">
             <div id="photo-container">
@@ -56,25 +54,55 @@
             </div>
           </div>
           <div id="right-inner-col" class="window">
-            <form id="selection-form">
-              <input type="radio" id="school1" name="selected-school" value="Dalhousie University" required>
-              <label for="school1">Dalhousie University</label><br>
-              <input type="radio" id="school2" name="selected-school" value="McGill University">
-              <label for="school2">McGill University</label><br>
-              <input type="radio" id="school3" name="selected-school" value="Simon Fraser University">
-              <label for="school3">Simon Fraser University</label><br>
-              <input type="radio" id="school4" name="selected-school" value="University of British Columbia">
-              <label for="school4">University of British Columbia</label><br>
-              <input type="radio" id="school5" name="selected-school" value="University of Toronto">
-              <label for="school5">University of Toronto</label><br>
-              <input type="radio" id="school6" name="selected-school" value="University of Alberta">
-              <label for="school6">University of Alberta</label><br><br>
-              <input type="submit" value="confirm">
+            <form id="selection-form" class="tst">
+              <input
+                type="radio"
+                id="school1"
+                name="selected-school"
+                value="Dalhousie University"
+                required
+              />
+              <label for="school1">Dalhousie University</label><br />
+              <input
+                type="radio"
+                id="school2"
+                name="selected-school"
+                value="McGill University"
+              />
+              <label for="school2">McGill University</label><br />
+              <input
+                type="radio"
+                id="school3"
+                name="selected-school"
+                value="Simon Fraser University"
+              />
+              <label for="school3">Simon Fraser University</label><br />
+              <input
+                type="radio"
+                id="school4"
+                name="selected-school"
+                value="University of British Columbia"
+              />
+              <label for="school4">University of British Columbia</label><br />
+              <input
+                type="radio"
+                id="school5"
+                name="selected-school"
+                value="University of Toronto"
+              />
+              <label for="school5">University of Toronto</label><br />
+              <input
+                type="radio"
+                id="school6"
+                name="selected-school"
+                value="University of Alberta"
+              />
+              <label for="school6">University of Alberta</label><br /><br />
+              <input id="confirm-button" type="submit" value="Confirm" />
             </form>
           </div>
         </div>
       </div>
-
     </main>
   </body>
 </html>

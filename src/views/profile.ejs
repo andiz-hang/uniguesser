@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-    <link rel="stylesheet" href="/stylesheets/profile.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="/javascripts/jquery-3.6.0.min.js" defer></script>
-    <script src='/javascripts/index.js' defer></script>
-    <script src='/javascripts/profile.js' defer></script>
-</head>
-<body>
+    <script src="/javascripts/index.js" defer></script>
+    <script src="/javascripts/profile.js" defer></script>
+  </head>
+  <body>
     <%- include('partial/_header') %>
     <main>
-        <h1>Welcome, <%= info.username %>! </h1>
+      <h1>Welcome, <%= info.username %>!</h1>
 
-        <% if (success && success.length > 0) { %>
-            <div class="flash success"><%= success[0] %></div>
-        <% } %>
-        <% if (error && error.length > 0) { %>
-            <div class="flash error"><%= error[0] %></div>
-        <% } %>
+      <% if (success && success.length > 0) { %>
+      <div class="flash success"><%= success[0] %></div>
+      <% } %> <% if (error && error.length > 0) { %>
+      <div class="flash error"><%= error[0] %></div>
+      <% } %>
 
-        <label for="login">LOGIN INFORMATION</label>
-        <ul class="container" name="login">
-            <li id="username">USERNAME: <%= info.username %> <button id="edit_user" onclick="editUser()">EDIT</button></li>
-        </ul>
+      <label for="login"><b>LOGIN INFORMATION</b></label>
+      <ul class="container" name="login">
+        <li id="username">
+          USERNAME: <%= info.username %>
+          <button id="edit_user" onclick="editUser()">EDIT</button>
+        </li>
+      </ul>
 
-        <label for="personal">PERSONAL INFORMATION</label>
-        <ul class="container" name="personal">
-            <li id="country">COUNTRY: <%= info.country %> <button id="edit_country" onclick="editCountry()">EDIT</button></li>
-        </ul>
+      <label for="personal"><b>PERSONAL INFORMATION</b></label>
+      <ul class="container" name="personal">
+        <li id="country">
+          COUNTRY: <%= info.country %>
+          <button id="edit_country" onclick="editCountry()">EDIT</button>
+        </li>
+      </ul>
     </main>
-</body>
+  </body>
 </html>
