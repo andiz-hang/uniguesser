@@ -1,40 +1,44 @@
 main {
-    padding: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: blanchedalmond;
+  padding: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: blanchedalmond;
 }
 
 .container {
-    border: 1pt rgb(122, 122, 122) solid;
-    border-radius: 25px;
-    width: 100%;
-    height: fit-content;
-    padding: 20px;
-    list-style-type: none;
-    font-size: larger;
-    margin: 0;
-    margin-bottom: 20px;
-    background-color: whitesmoke;
+  border: 1pt rgb(122, 122, 122) solid;
+  border-radius: 15px;
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  list-style-type: none;
+  font-size: larger;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background-color: whitesmoke;
 
-    /* Prevent padding from overriding width */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+  /* Prevent padding from overriding width */
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 .container li {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .flash {
-    margin: 12px;
-    padding: 12px;
-    border: 1px solid slategray;
-
+  margin: 12px;
+  padding: 12px;
+  border: 1px solid slategray;
 }
 .flash.success {
-    background-color: rgba(77, 223, 64, 0.5);
+  background-color: rgba(77, 223, 64, 0.5);
 }
 .flash.error {
-    background-color: rgba(255, 90, 90, 0.5);
+  background-color: rgba(255, 90, 90, 0.5);
+}
+
+button {
+  margin-right: 5px;
+  margin-left: 5px;
 }

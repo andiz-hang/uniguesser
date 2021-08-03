@@ -1,6 +1,7 @@
 main {
   display: grid;
   grid-template-columns: 20% auto;
+  background-color: #d5f6ec;
 }
 
 /* Left grid column */
@@ -15,7 +16,8 @@ main {
   grid-template-rows: 10% 60%;
 }
 
-.stats td:nth-child(2), .stats td:nth-child(4){
+.stats td:nth-child(2),
+.stats td:nth-child(4) {
   padding-right: 50px;
 }
 
@@ -46,6 +48,10 @@ main {
   display: none;
   max-width: 100%;
   max-height: 500px;
+  border-radius: 5px;
+  border: 2pt;
+  border-style: groove;
+  border-color: #1890ff;
 }
 
 /* Right grid column */
@@ -59,7 +65,7 @@ main {
 
 #bottom-row {
   height: 100%;
-  position:relative;
+  position: relative;
 }
 
 /* End game overlay*/
@@ -79,11 +85,11 @@ main {
 
 #start-button {
   font-size: larger;
-  width: 150px;
-  height: 100px;
+  width: 180px;
+  height: 60px;
   border: 1pt white solid;
   background-color: #1890ff;
-  border-radius: 15%;
+  border-radius: 10%;
   text-align: center;
   margin: auto;
   color: white;
@@ -92,4 +98,12 @@ main {
 
 #start-button:hover {
   cursor: pointer;
+}
+
+#confirm-button {
+  background-color: #1890ff;
+  color: white;
+  border-radius: 5px;
+  width: 200px;
+  height: 30px;
 }

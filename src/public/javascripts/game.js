@@ -36,9 +36,9 @@ $(document).ready(function () {
 
   $("#logout-button").on("click", () => {
     $.ajax({
-        method: "POST",
-        url: "/auth/logout",
-      });
+      method: "POST",
+      url: "/auth/logout",
+    });
     location.href = "/";
   });
 });
@@ -69,10 +69,11 @@ function startGame() {
     success: (data) => {
       schoolList = data;
       $("#location_counter").text(
-        `Location: ${schoolIndex + 1}/${schoolList.length}`
+        `Location: ${schoolIndex + 1}/${schoolList.length}
+        `
       );
 
-      getPhoto(schoolList[0]['photo_ref'])
+      getPhoto(schoolList[0]["photo_ref"]);
 
       var startTime = new Date();
 
@@ -88,11 +89,11 @@ function startGame() {
 }
 
 function getPhoto(photoRef) {
-$.ajax({
+  $.ajax({
     method: "get",
     url: "/schools/" + photoRef,
     success: (data) => {
-      displayPhoto(data)
+      displayPhoto(data);
     },
   });
 }
@@ -118,8 +119,8 @@ function endGame() {
 async function displayPhoto(image) {
   // reference: https://stackoverflow.com/questions/9267899/arraybuffer-to-base64-encoded-string
   var img = new Image();
-  var data = btoa(String.fromCharCode(...new Uint8Array(image.buff.data)))
-  img.src = 'data:image/jpeg;base64,' + data;
+  var data = btoa(String.fromCharCode(...new Uint8Array(image.buff.data)));
+  img.src = "data:image/jpeg;base64," + data;
   img.height = "395";
   img.id = "campus-photo";
   $("#campus-photo").replaceWith(img);
@@ -129,7 +130,7 @@ async function displayPhoto(image) {
 function nextSchool() {
   $("input[name='selected-school']").attr("checked", false);
   schoolIndex++;
-  getPhoto(schoolList[schoolIndex].photo_ref)
+  getPhoto(schoolList[schoolIndex].photo_ref);
   $("#location_counter").text(
     `Location: ${schoolIndex + 1}/${schoolList.length}`
   );
