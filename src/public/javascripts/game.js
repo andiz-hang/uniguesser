@@ -48,8 +48,10 @@ function checkAnswer(answer) {
     score++;
 
     $("#score")[0].innerHTML = score;
+    setTimeout(() => { alert("Correct Guess!"); }, 3000);
     playSuccess();
   } else {
+    setTimeout(() => { alert("Incorrect Guess"); }, 3000);
     playMiss();
   }
 
